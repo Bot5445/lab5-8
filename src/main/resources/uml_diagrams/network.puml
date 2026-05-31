@@ -1,0 +1,150 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+left to right direction
+
+
+package network\data {
+
+    interface ICrud {
+        +addPerson(person: Person)
+        +deletePerson(id: Integer)
+        +updatePerson(id: Integer, person: Person)
+        +clear()
+    }
+
+    interface IGetterSetter {
+        +getPerson(): Map<Integer, Person>
+        +getPersonById(id: Integer): Person
+        +getAllPersons(): Collection<Person>
+        +setPersons(persons: List<Person>)
+    }
+
+    interface IRemoveKey {
+        +removeLower(template: Person): int
+        +removeLowerKey(thresholdId: int): int
+    }
+
+    interface IsKey {
+        +containsId(id: Integer): boolean
+        +isEmpty(): boolean
+    }
+
+    interface ICollManager {
+        +generateNextId(): int
+    }
+
+    class CollectionManager {
+        -collection: Map<Integer, Person>
+        +getPerson(): Map<Integer, Person>
+        +addPerson(person: Person)
+        +deletePerson(id: Integer)
+        +updatePerson(id: Integer, person: Person)
+        +clear()
+        +containsId(id: Integer): boolean
+        +getPersonById(id: Integer): Person
+        +setPersons(persons: List<Person>)
+        +getAllPersons(): Collection<Person>
+        +isEmpty(): boolean
+        +generateNextId(): int
+        +removeLower(template: Person): int
+        +removeLowerKey(thresholdId: int): int
+    }
+
+    enum Color {
+        RED
+        BLACK
+        ORANGE
+        BROWN
+    }
+
+    enum Country {
+        FRANCE
+        INDIA
+        NORTH_KOREA
+    }
+
+    class Coordinates {
+        -x: float
+        -y: float
+        +getX(): float
+        +setX(x: float)
+        +getY(): float
+        +setY(y: float)
+        +toString(): String
+        +toStrings(): String[]
+    }
+
+    class Location {
+        -x: long
+        -y: Double
+        -name: String
+        +getX(): long
+        +getY(): Double
+        +getName(): String
+        +setName(name: String)
+        +toString(): String
+        +toStrings(): String[]
+    }
+
+    class Person {
+        -id: Integer
+        -name: String
+        -coordinates: Coordinates
+        -creationDate: LocalDateTime
+        -height: Long
+        -passportID: String
+        -nationality: Country
+        -hairColor: Color
+        -location: Location
+        +getId(): Integer
+        +setId(id: Integer)
+        +getName(): String
+        +getCoordinates(): Coordinates
+        +getCreationDate(): LocalDateTime
+        +setCreationDate(creationDate: LocalDateTime)
+        +getHeight(): Long
+        +getPassportID(): String
+        +setPassportID(passportID: String)
+        +getNationality(): Country
+        +setNationality(nationality: Country)
+        +getHairColor(): Color
+        +setHairColor(hairColor: Color)
+        +getLocation(): Location
+        +toString(): String
+        +getHeaders(): String[]
+        +compareTo(o: Person): int
+    }
+
+    class PersonFactory {
+        -{static}DATE_FORMATTER: DateTimeFormatter
+        +{static}validateAndParseId(input: String): Integer
+        +{static}validateAndParseName(input: String): String
+        +{static}parseEnum(enumClass: Class<E>, str: String): E
+        -{static}parseDate(dateStr: String): LocalDateTime
+        +{static}parseFloat(input: String, fieldName: String): Float
+        +{static}createFromStringArray(str: String[]): Person
+        +{static}formatDate(date: LocalDateTime): String
+    }
+
+    class PersonFieldUpdater {
+        +{static}updateField(oldPerson: Person, fieldName: String, newValue: String): Person
+        +{static}getFieldValue(person: Person, fieldName: String): String
+    }
+
+    ICollManager --|> ICrud
+    ICollManager --|> IGetterSetter
+    ICollManager --|> IRemoveKey
+    ICollManager --|> IsKey
+
+    CollectionManager ..|> ICollManager
+
+    Person *-- Coordinates
+    Person *-- Location
+    Person --> Color
+    Person --> Country
+}
+@enduml

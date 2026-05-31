@@ -1,0 +1,6 @@
+org.example.client
+org.example.network
+org.example.network.data
+org.example.server
+org.example.server.commands
+org.example.server.ioStorage

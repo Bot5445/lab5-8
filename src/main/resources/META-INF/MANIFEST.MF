@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: org.example.Main
-Class-Path: src/*.java src/data/*.java src/ioStorage/*.java src/commands
- /*.java.
-

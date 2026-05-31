@@ -1,0 +1,75 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+
+package client {
+    class ClientMain {
+        +{static} main(args: String[])
+        -{static} processResponse(response: Response)
+    }
+
+    class UDPClient {
+        -serverAddress: InetSocketAddress
+        -channel: DatagramChannel
+        +UDPClient(host: String, port: int)
+        +sendRequest(request: Request): Response
+        +close()
+    }
+
+    class PersonInputReader {
+        -scanner: Scanner
+        +PersonInputReader(scanner: Scanner)
+        +readPersonData(args: String): String[]
+        -readField(prompt: String, validator: Predicate<String>, formatNumber: String): String
+        -readNextArgOrPrompt(argQueue: Queue<String>, prompt: String, validator: Predicate<String>, formatNumber: String): String
+        -readFieldEnum(fieldName: String, enumClass: Class<E>): String
+        +{static} cleinerStr(input: String): String
+        +{static} cleinerStr(input: String, formatNumber: String): String
+        -{static} isValidNumberFormat(s: String, allowDecimal: boolean): boolean
+        -{static} isString(): Predicate<String>
+        -{static} isPassportId(): Predicate<String>
+    }
+
+    class ScriptExecutor {
+        -udpClient: UDPClient
+        -{static} runningScripts: Set<String>
+        +ScriptExecutor(udpClient: UDPClient)
+        +executeScript(filePath: String)
+    }
+}
+
+package network {
+    class CommandRules
+    class Request
+    class Response
+    enum ResponseStatus
+}
+
+package network.data <<Package>> {
+    class Person
+    class PersonFactory
+}
+
+ClientMain ..> CommandRules
+ClientMain ..> Request
+ClientMain ..> Response
+ClientMain ..> ResponseStatus
+ClientMain ..> PersonInputReader
+ClientMain ..> ScriptExecutor
+ClientMain --> UDPClient
+
+UDPClient ..> Request
+UDPClient ..> Response
+
+PersonInputReader ..> PersonFactory
+PersonInputReader ..> Person
+
+ScriptExecutor ..> CommandRules
+ScriptExecutor ..> Request
+ScriptExecutor --> UDPClient
+ScriptExecutor ..> Response
+@enduml
+

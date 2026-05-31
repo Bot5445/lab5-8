@@ -1,0 +1,91 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+left to right direction
+
+package server\commands {
+
+    interface ICommand {
+        +getName(): String
+        +execute(request: Request): Response
+        +getDescription(): String
+        +requiresCompoundDataInput(): boolean
+        +acceptsArguments(): boolean
+    }
+
+    class Clear {
+        -collectionManager: IGetterSetter
+        +execute(request: Request): Response
+    }
+    class Exit {
+        +execute(request: Request): Response
+    }
+    class FilterContainsPassportID {
+        -collectionManager: IGetterSetter
+        +execute(request: Request): Response
+    }
+    class FilterStartsWithName {
+        -collectionManager: IGetterSetter
+        +execute(request: Request): Response
+    }
+    class Help {
+        -cmds: Map<String, ICommand>
+        +execute(request: Request): Response
+    }
+    class Info {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+    class Insert {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+    class RemoveKey {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+    class RemoveLower {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+    class RemoveLowerKey {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+    class ReplaceIfGreater {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+    class Show {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+        -truncate(value: String, maxLen: int): String
+    }
+    class SumOfHeight {
+        -collectionManager: IGetterSetter
+        +execute(request: Request): Response
+    }
+    class Update {
+        -collectionManager: ICollManager
+        +execute(request: Request): Response
+    }
+
+    Clear ..|> ICommand
+    Exit ..|> ICommand
+    FilterContainsPassportID ..|> ICommand
+    FilterStartsWithName ..|> ICommand
+    Help ..|> ICommand
+    Info ..|> ICommand
+    Insert ..|> ICommand
+    RemoveKey ..|> ICommand
+    RemoveLower ..|> ICommand
+    RemoveLowerKey ..|> ICommand
+    ReplaceIfGreater ..|> ICommand
+    Show ..|> ICommand
+    SumOfHeight ..|> ICommand
+    Update ..|> ICommand
+}
+@enduml

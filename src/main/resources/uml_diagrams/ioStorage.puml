@@ -1,0 +1,27 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+
+package server\ioStorage {
+
+    class FileStorage {
+            -fileName: String
+            +load(): List<Person>
+            +save(persons: Collection<Person>)
+            +setFileName(fileName: String)
+        }
+
+    interface IStorage {
+        +load(): List<Person>
+        +save(persons: Collection<Person>)
+        +setFileName(fileName: String)
+    }
+}
+' === Relationships ===
+
+IStorage <|.. FileStorage
+
+@enduml
