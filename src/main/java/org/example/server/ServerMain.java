@@ -12,7 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.DatagramSocket;
-import java.net.SocketTimeoutException;
+import java.net.InetSocketAddress;
+import java.nio.channels.DatagramChannel;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ import java.util.Scanner;
  */
 public class ServerMain {
     private static final Logger logger = LoggerFactory.getLogger(ServerMain.class);
-    private static int PORT;; // Порт по умолчанию
+    private static int PORT; // Порт по умолчанию
     private static final int SOCKET_TIMEOUT = 1000; // 1 секунда для проверки консоли
 
     /**
@@ -39,15 +40,17 @@ public class ServerMain {
      * @param args аргументы командной строки. args[0] — порт сервера.
      */
     public static void main(String[] args) {
-        PORT = Integer.parseInt(args[0]);
+        PORT =5555;// Integer.parseInt(args[0]);
 
         // 1. Инициализация хранилища и коллекции
-        String filePath = System.getenv("LAB5_FILE"); // По ТЗ переменная окружения
+        String filePath = System.getenv("LAB_FILE"); // По ТЗ переменная окружения
         if (filePath == null || filePath.isEmpty()) {
-            logger.error("Переменная окружения LAB5_FILE не задана!");
-            System.err.println("Задайте переменную окружения LAB5_FILE (путь к CSV файлу).");
+            logger.error("Переменная окружения LAB_FILE не задана!");
+            System.err.println("Задайте переменную окружения LAB_FILE (путь к CSV файлу).");
             System.exit(1);
         }
+        logger.info("Используется CSV файл: {}", filePath);
+
         FileStorage storage = new FileStorage(filePath);
         CollectionManager collectionManager = new CollectionManager();
 
@@ -79,63 +82,61 @@ public class ServerMain {
 
         CommandProcessor processor = new CommandProcessor(commands);
 
-        // 3. Запуск сетевого цикла (ОДНОПОТОЧНЫЙ РЕЖИМ)
-        try (DatagramSocket socket = new DatagramSocket(PORT);
-             Scanner consoleScanner = new Scanner(System.in)) {
+        // 3. Запуск сетевого цикла с использованием NIO DatagramChannel
+        try {
+            DatagramChannel channel = DatagramChannel.open();
+            channel.bind(new InetSocketAddress(PORT));
+            channel.configureBlocking(false); // 🔥 НАСТОЯЩИЙ неблокирующий режим!
 
-            socket.setSoTimeout(SOCKET_TIMEOUT); // Важно для однопоточного чтения консоли!
+            RequestReceiver receiver = new RequestReceiver(channel, 65507);
+            ResponseSender sender = new ResponseSender(channel);
+            Scanner consoleScanner = new Scanner(System.in);
 
-            RequestReceiver receiver = new RequestReceiver(socket);
-            ResponseSender sender = new ResponseSender(socket);
-
-            logger.info("Сервер запущен на порту {}. Ожидание запросов...", PORT);
+            logger.info("Сервер запущен на порту {}. Ожидание запросов (NIO)...", PORT);
             System.out.println("Сервер запущен. Введите 'save' для сохранения коллекции вручную.");
 
-            // Добавляем хук для сохранения при завершении (Ctrl+C)
+            // Хук для сохранения при завершении (Ctrl+C)
             Runtime.getRuntime().addShutdownHook(new Thread(() -> {
                 logger.info("Завершение работы сервера. Сохранение коллекции...");
                 try {
                     storage.save(collectionManager.getAllPersons());
-                } catch (IOException e) {
-                    logger.error("Ошибка сохранения при выходе: {}", e.getMessage());
+                } catch (Exception e) {
+                    logger.error("Ошибка при сохранении: {}", e.getMessage());
+                } finally {
+                    try { channel.close(); } catch (Exception ignored) {}
                 }
             }));
 
-            // ГЛАВНЫЙ ОДНОПОТОЧНЫЙ ЦИКЛ
+            // ГЛАВНЫЙ ОДНОПОТОЧНЫЙ ЦИКЛ (NIO)
             while (true) {
                 try {
-                    // Модуль чтения запроса (блокируется максимум на 1 секунду)
+                    // Пытаемся получить запрос. Если данных нет, вернет null мгновенно.
                     RequestWrapper wrapper = receiver.receive();
-                    logger.info("Получен запрос от {}: Команда '{}'", wrapper.clientAddress(), wrapper.request().getCommandName());
 
-                    Request request = wrapper.request();
-
-                    // Модуль обработки полученных команд
-                    Response response = processor.process(request);
-
-                    // Модуль отправки ответов клиенту
-                    sender.send(response, wrapper.clientAddress());
-
-                } catch (SocketTimeoutException e) {
-                    // Таймаут сокета истек - это нормально!
-                    // Используем эту паузу для проверки ввода с консоли сервера (команда save)
-                    if (consoleScanner.hasNextLine()) {
-                        String serverInput = consoleScanner.nextLine().trim();
-                        if ("save".equalsIgnoreCase(serverInput)) {
-                            logger.info("Получена команда 'save' от серверного оператора.");
-                            try {
+                    if (wrapper == null) {
+                        // Данных от клиента нет. Проверяем, не ввел ли админ команду в консоль.
+                        if (System.in.available() > 0 && consoleScanner.hasNextLine()) {
+                            String serverInput = consoleScanner.nextLine().trim();
+                            if ("save".equalsIgnoreCase(serverInput)) {
+                                logger.info("Получена команда 'save' от серверного оператора.");
                                 storage.save(collectionManager.getAllPersons());
                                 System.out.println("Коллекция успешно сохранена.");
-                            } catch (IOException ex) {
-                                logger.error("Ошибка сохранения: " + ex.getMessage());
                             }
                         }
+                        // Небольшая пауза, чтобы не нагружать процессор на 100% в холостом цикле
+                        Thread.sleep(10);
+                        continue;
                     }
+
+                    // Если пакет пришел, обрабатываем его
+                    Request request = wrapper.request();
+                    Response response = processor.process(request);
+                    sender.send(response, wrapper.clientAddress());
+
                 } catch (Exception e) {
                     logger.error("Ошибка при обработке запроса: {}", e.getMessage());
                 }
             }
-
         } catch (IOException e) {
             logger.error("Не удалось запустить сервер: {}", e.getMessage());
         }

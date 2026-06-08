@@ -2,6 +2,7 @@ package org.example.network;
 
 import org.example.network.data.Person;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -12,6 +13,7 @@ import java.io.Serializable;
  * @see Response
  */
 public class Request implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final String commandName;

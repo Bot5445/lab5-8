@@ -1,5 +1,6 @@
 package org.example.network.data;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 import java.time.LocalDateTime;
@@ -17,7 +18,8 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public final class Person implements Serializable, Comparable<Person> {
-
+    @Serial
+    private static final long serialVersionUID = 1L;
     /**
      * Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
      */

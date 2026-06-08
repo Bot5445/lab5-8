@@ -3,37 +3,37 @@ package org.example.server;
 import org.example.network.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.DatagramChannel;
 
-/**
- * Модуль чтения запроса.
- * Принимает датаграммы и десериализует их в объекты Request.
- */
 public class RequestReceiver {
     private static final Logger logger = LoggerFactory.getLogger(RequestReceiver.class);
-    private final DatagramSocket socket;
-    private final byte[] buffer = new byte[65507];
+    private final DatagramChannel channel;
+    private final int bufferSize;
 
-    public RequestReceiver(DatagramSocket socket) {
-        this.socket = socket;
+    public RequestReceiver(DatagramChannel channel, int bufferSize) {
+        this.channel = channel;
+        this.bufferSize = bufferSize;
     }
 
-    /**
-     * Блокируется до получения пакета, затем десериализует его.
-     * @return объект RequestWrapper, содержащий запрос и адрес отправителя
-     * @throws Exception при ошибке сети или десериализации
-     */
     public RequestWrapper receive() throws Exception {
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-        socket.receive(packet); // Блокирующий вызов
+        // В неблокирующем режиме receive() вернет null, если пакет не пришел
+        ByteBuffer buffer = ByteBuffer.allocate(bufferSize);
+        SocketAddress clientAddress = channel.receive(buffer);
 
-        SocketAddress clientAddress = packet.getSocketAddress();
-        try (ByteArrayInputStream bais = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
+        if (clientAddress == null) {
+            return null; // Данных нет, возвращаем null (не блокируем поток!)
+        }
+
+        buffer.flip();
+        byte[] data = new byte[buffer.remaining()];
+        buffer.get(data);
+
+        try (ByteArrayInputStream bais = new ByteArrayInputStream(data);
              ObjectInputStream ois = new ObjectInputStream(bais)) {
             Request request = (Request) ois.readObject();
             logger.info("Получен запрос от {}: Команда '{}'", clientAddress, request.getCommandName());

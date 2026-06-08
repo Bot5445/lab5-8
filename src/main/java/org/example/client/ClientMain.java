@@ -19,8 +19,8 @@ public class ClientMain {
             System.exit(0);
         }
 
-        String host = args[0];
-        int port = Integer.parseInt(args[1]);
+        String host = "localhost";//args[0];
+        int port = 5555; //Integer.parseInt(args[1]);
 
         try (UDPClient udpClient = new UDPClient(host, port);
              Scanner scanner = new Scanner(System.in)) {
