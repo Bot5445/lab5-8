@@ -8,8 +8,10 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
 import java.net.Inet4Address;
 import java.net.InetSocketAddress;
+
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
@@ -56,16 +58,16 @@ public class UDPClient implements AutoCloseable {
             long deadline = System.currentTimeMillis() + timeoutMillis;
 
             while (System.currentTimeMillis() < deadline) {
-                // Слайд 6: clear() сбрасывает буфер для новой операции чтения
+                // clear() сбрасывает буфер для новой операции чтения
                 receiveBuffer.clear();
 
-                // Слайд 50: receive(). В неблокирующем режиме вернет null, если данных еще нет.
+                // receive(). В неблокирующем режиме вернет null, если данных еще нет.
                 InetSocketAddress responseAddress = (InetSocketAddress) channel.receive(receiveBuffer);
 
                 if (responseAddress != null) {
                     System.out.println("[DEBUG] Получен ответ от " + responseAddress);
 
-                    // Слайд 6: flip() переключает буфер из режима записи в режим чтения
+                    // переключает буфер из режима записи в режим чтения
                     receiveBuffer.flip();
                     byte[] responseData = new byte[receiveBuffer.remaining()];
                     receiveBuffer.get(responseData);
@@ -85,7 +87,6 @@ public class UDPClient implements AutoCloseable {
                 }
             }
 
-    //        System.out.println("Сервер не отвечает. Проверьте подключение и попробуйте позже.");
             return new Response("Сервер не отвечает. Проверьте подключение и попробуйте позже.", ResponseStatus.ERROR);
        } catch (Exception e) {
             return new Response("Client network error: " + e.getMessage(), ResponseStatus.ERROR);

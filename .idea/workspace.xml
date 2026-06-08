@@ -4,25 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00967bb3-cb6d-46b1-a40b-6042d3258cca" name="Changes" comment="Передача файла по UDP (исправлена). executor делает 5 попыток">
+    <list default="true" id="00967bb3-cb6d-46b1-a40b-6042d3258cca" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/all_java_files.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lab6_Client_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/lab6_Server_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab6_Client_jar/lab6_Client.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab6_Server_jar/lab6_Server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lab6_jar/lab6_Server.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/client/ClientMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/ScriptExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/client/ScriptExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/UDPClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/client/UDPClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/Response.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/data/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/data/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/CommandProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/data/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/data/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/data/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/data/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/data/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/data/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/RequestReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/RequestReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/ResponseSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/ResponseSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/FilterContainsPassportID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/FilterContainsPassportID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/FilterStartsWithName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/FilterStartsWithName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Insert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLowerKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLowerKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/ReplaceIfGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/ReplaceIfGreater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/ServerMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,23 +126,9 @@
       <option name="presentableId" value="Default" />
       <updated>1780929077625</updated>
     </task>
-    <task id="LOCAL-00001" summary="Передача файла по UDP (исправлена). executor делает 5 попыток">
-      <option name="closed" value="true" />
-      <created>1780936009954</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1780936009955</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="перенесён на Client-Server, добавлена реализация датаграмм" />
-    <MESSAGE value="Передача файла по UDP (исправлена). executor делает 5 попыток" />
-    <option name="LAST_COMMIT_MESSAGE" value="Передача файла по UDP (исправлена). executor делает 5 попыток" />
   </component>
 </project>
