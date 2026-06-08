@@ -38,7 +38,7 @@ public class RemoveLowerKey implements ICommand {
     @Override
     public Response execute(Request request) {
         // 1. Получаем аргументы из запроса
-        String args = request.getArgs();
+        String args = request.args();
 
         if (args == null || args.trim().isEmpty()) {
             return new Response("Ошибка: укажите ключ (ID) для сравнения.", ResponseStatus.ERROR);

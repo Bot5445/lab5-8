@@ -39,10 +39,10 @@ public class FilterContainsPassportID implements ICommand {
      */
     @Override
     public Response execute(Request args) {
-        if (args == null || args.getArgs().trim().isEmpty() || !args.getArgs().replace(" ", "").matches("\\d+")) {
+        if (args == null || args.args().trim().isEmpty() || !args.args().replace(" ", "").matches("\\d+")) {
             return new Response("Ошибка: укажите строку, состоящая из чисел, для поиска в passportID.", ResponseStatus.ERROR);
         }
-        String substring = args.getArgs().trim().replace(" ", "");
+        String substring = args.args().trim().replace(" ", "");
 
         StringBuilder result = new StringBuilder();
         boolean found = false;

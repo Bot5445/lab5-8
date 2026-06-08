@@ -82,10 +82,10 @@ public class ClientMain {
     private static void processResponse(Response response) {
         if (response == null) return; // UDPClient уже вывел сообщение о таймауте
 
-        if (response.getStatus() == ResponseStatus.OK) {
-            System.out.println(response.getMessage());
+        if (response.status() == ResponseStatus.OK) {
+            System.out.println(response.message());
         } else {
-            System.err.println("Ошибка: " + response.getMessage());
+            System.err.println("Ошибка: " + response.message());
         }
     }
 }

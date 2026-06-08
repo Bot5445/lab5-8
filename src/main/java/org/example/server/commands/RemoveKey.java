@@ -31,7 +31,7 @@ public class RemoveKey implements ICommand {
     @Override
     public Response execute(Request request) {
         try {
-            int id = Integer.parseInt(request.getArgs().trim());
+            int id = Integer.parseInt(request.args().trim());
             if (!collectionManager.containsId(id)) {
                 return new Response("Элемент с ID " + id + " не найден.", ResponseStatus.ERROR);
             }

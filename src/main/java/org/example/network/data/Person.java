@@ -137,8 +137,9 @@ public final class Person implements Serializable, Comparable<Person> {
     }
 
     /**
+     * Сравнивает кто больше
      * @param o the object to be compared.
-     * @return
+     * @return число какое будет больше
      */
     @Override
     public int compareTo(Person o) {

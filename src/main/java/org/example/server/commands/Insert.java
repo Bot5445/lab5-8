@@ -33,7 +33,7 @@ public class Insert implements ICommand {
      */
     @Override
     public Response execute(Request request) {
-        Person person = request.getPerson();
+        Person person = request.person();
         if (person == null) {
             return new Response("Ошибка: Отсутствует объект Person.", ResponseStatus.ERROR);
         }

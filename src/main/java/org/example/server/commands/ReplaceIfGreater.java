@@ -5,10 +5,8 @@ import org.example.network.Response;
 import org.example.network.ResponseStatus;
 import org.example.network.data.ICollManager;
 import org.example.network.data.Person;
-import org.example.network.data.PersonFactory;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 /**
  * Команда для замены значения элемента в коллекции по ключу (ID),
@@ -53,7 +51,7 @@ public class ReplaceIfGreater implements ICommand{
     @Override
     public Response execute(Request request) {
         // 1. Получаем ID из строковых аргументов запроса (клиент передал его в той же строке, что и команду)
-        String args = request.getArgs();
+        String args = request.args();
         if (args == null || args.trim().isEmpty()) {
             return new Response("Ошибка: укажите ID элемента.", ResponseStatus.ERROR);
         }
@@ -66,7 +64,7 @@ public class ReplaceIfGreater implements ICommand{
         }
 
         // 2. Получаем готовый объект Person от клиента
-        Person newPerson = request.getPerson();
+        Person newPerson = request.person();
         if (newPerson == null) {
             return new Response("Ошибка: отсутствует объект Person для сравнения.", ResponseStatus.ERROR);
         }

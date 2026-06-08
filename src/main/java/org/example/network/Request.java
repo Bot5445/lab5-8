@@ -12,13 +12,9 @@ import java.io.Serializable;
  *
  * @see Response
  */
-public class Request implements Serializable {
+public record Request(String commandName, String args, Person person) implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private final String commandName;
-    private final String args;
-    private final Person person;
 
     /**
      * Конструктор запроса.
@@ -28,27 +24,36 @@ public class Request implements Serializable {
      * @param person      объект Person для команд, требующих составного ввода.
      *                    Может быть null, если команда не работает с объектом коллекции.
      */
-    public Request(String commandName, String args, Person person) {
-        this.commandName = commandName;
-        this.args = args;
-        this.person = person;
+    public Request {
     }
 
     /**
      * Возвращает имя команды.
+     *
      * @return название команды
      */
-    public String getCommandName() { return commandName; }
+    @Override
+    public String commandName() {
+        return commandName;
+    }
 
     /**
      * Возвращает строковые аргументы команды.
+     *
      * @return аргументы или null, если они отсутствуют
      */
-    public String getArgs() { return args; }
+    @Override
+    public String args() {
+        return args;
+    }
 
     /**
      * Возвращает объект Person, прикрепленный к запросу.
+     *
      * @return объект коллекции или null
      */
-    public Person getPerson() { return person; }
+    @Override
+    public Person person() {
+        return person;
+    }
 }

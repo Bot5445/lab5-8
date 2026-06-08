@@ -5,7 +5,6 @@ import org.example.network.Response;
 import org.example.network.ResponseStatus;
 import org.example.network.data.ICollManager;
 import org.example.network.data.Person;
-import org.example.network.data.PersonFieldUpdater;
 
 import java.time.LocalDateTime;
 
@@ -43,8 +42,8 @@ public class Update implements ICommand{
     @Override
     public Response execute(Request request) {
         try {
-            int id = Integer.parseInt(request.getArgs().trim());
-            Person person = request.getPerson();
+            int id = Integer.parseInt(request.args().trim());
+            Person person = request.person();
 
             if (!collectionManager.containsId(id)) {
                 return new Response("Элемента с ID " + id + " не существует.", ResponseStatus.ERROR);

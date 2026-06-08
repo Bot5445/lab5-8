@@ -86,7 +86,7 @@ public class ServerMain {
         try {
             DatagramChannel channel = DatagramChannel.open();
             channel.bind(new InetSocketAddress(PORT));
-            channel.configureBlocking(false); // 🔥 НАСТОЯЩИЙ неблокирующий режим!
+            channel.configureBlocking(false); //неблокирующий режим!
 
             RequestReceiver receiver = new RequestReceiver(channel, 65507);
             ResponseSender sender = new ResponseSender(channel);

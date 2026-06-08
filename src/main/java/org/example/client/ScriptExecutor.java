@@ -85,7 +85,7 @@ public class ScriptExecutor {
 
                         if (response != null) {
                             // Успех: сервер ответил
-                            System.out.println(response.getMessage());
+                            System.out.println(response.message());
                             commandSuccess = true;
                             break; // Выходим из цикла попыток, переходим к следующей команде
                         } else {

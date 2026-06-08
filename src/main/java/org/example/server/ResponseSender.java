@@ -28,7 +28,7 @@ public class ResponseSender {
             ByteBuffer sendBuffer = ByteBuffer.wrap(sendData);
             channel.send(sendBuffer, clientAddress);
 
-            logger.info("Ответ отправлен клиенту {}: Статус {}", clientAddress, response.getStatus());
+            logger.info("Ответ отправлен клиенту {}: Статус {}", clientAddress, response.status());
         }
         System.out.println("[DEBUG] SEND TO = " + clientAddress);
     }

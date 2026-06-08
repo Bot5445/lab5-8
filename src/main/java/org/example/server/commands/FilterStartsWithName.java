@@ -42,7 +42,7 @@ public class FilterStartsWithName implements ICommand {
      */
     @Override
     public Response execute(Request request) {
-        String prefix = request.getArgs();
+        String prefix = request.args();
         if (prefix == null || prefix.trim().isEmpty()) {
             return new Response("Ошибка: укажите префикс.", ResponseStatus.ERROR);
         }

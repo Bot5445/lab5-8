@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;
-import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
@@ -36,7 +35,7 @@ public class RequestReceiver {
         try (ByteArrayInputStream bais = new ByteArrayInputStream(data);
              ObjectInputStream ois = new ObjectInputStream(bais)) {
             Request request = (Request) ois.readObject();
-            logger.info("Получен запрос от {}: Команда '{}'", clientAddress, request.getCommandName());
+            logger.info("Получен запрос от {}: Команда '{}'", clientAddress, request.commandName());
             return new RequestWrapper(request, clientAddress);
         }
     }

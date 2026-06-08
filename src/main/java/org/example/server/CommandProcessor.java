@@ -27,17 +27,17 @@ public class CommandProcessor {
      * @return ответ
      */
     public Response process(Request request) {
-        ICommand command = commands.get(request.getCommandName());
+        ICommand command = commands.get(request.commandName());
         if (command == null) {
-            logger.warn("Получена неизвестная команда: {}", request.getCommandName());
-            return new Response("Неизвестная команда: " + request.getCommandName(), ResponseStatus.ERROR);
+            logger.warn("Получена неизвестная команда: {}", request.commandName());
+            return new Response("Неизвестная команда: " + request.commandName(), ResponseStatus.ERROR);
         }
         try {
             // Логируем начало выполнения команды
-            logger.debug("Выполнение команды: {}", request.getCommandName());
+            logger.debug("Выполнение команды: {}", request.commandName());
             return command.execute(request);
         } catch (Exception e) {
-            logger.error("Ошибка при выполнении команды {}: {}", request.getCommandName(), e.getMessage());
+            logger.error("Ошибка при выполнении команды {}: {}", request.commandName(), e.getMessage());
             return new Response("Ошибка на сервере: " + e.getMessage(), ResponseStatus.ERROR);
         }
     }

@@ -1,7 +1,5 @@
 package org.example.network.data;
 
-import java.io.Serial;
-
 /**
  * Перечисление, представляющее возможные цвета волос.
  */

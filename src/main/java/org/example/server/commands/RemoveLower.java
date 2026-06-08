@@ -5,9 +5,6 @@ import org.example.network.Response;
 import org.example.network.ResponseStatus;
 import org.example.network.data.ICollManager;
 import org.example.network.data.Person;
-import org.example.network.data.PersonFactory;
-
-import java.util.Arrays;
 
 /**
  * Удаляет из коллекции все элементы, меньшие, чем заданный
@@ -33,7 +30,7 @@ public class RemoveLower implements ICommand{
      */
     @Override
     public Response execute(Request request) {
-        Person template = request.getPerson();
+        Person template = request.person();
         if (template == null) return new Response("Ошибка: нет объекта для сравнения.", ResponseStatus.ERROR);
 
         // Используем Stream API!

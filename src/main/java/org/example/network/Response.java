@@ -9,12 +9,9 @@ import java.io.Serializable;
  *
  * @see Request
  */
-public class Response implements Serializable {
+public record Response(String message, ResponseStatus status) implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
-
-    private final String message;
-    private final ResponseStatus status;
 
     /**
      * Конструктор ответа.
@@ -22,8 +19,7 @@ public class Response implements Serializable {
      * @param message текстовое сообщение с результатом успешного выполнения
      */
     public Response(String message) {
-        this.message = message;
-        this.status = ResponseStatus.OK;
+        this(message, ResponseStatus.OK);
     }
 
     /**
@@ -32,20 +28,26 @@ public class Response implements Serializable {
      * @param message текстовое сообщение с результатом выполнения или ошибкой
      * @param status  статус выполнения команды ({@link ResponseStatus#OK} или {@link ResponseStatus#ERROR})
      */
-    public Response(String message, ResponseStatus status) {
-        this.message = message;
-        this.status = status;
+    public Response {
     }
 
     /**
      * Возвращает сообщение сервера.
+     *
      * @return текст результата
      */
-    public String getMessage() { return message; }
+    @Override
+    public String message() {
+        return message;
+    }
 
     /**
      * Возвращает статус ответа.
+     *
      * @return статус выполнения
      */
-    public ResponseStatus getStatus() { return status; }
+    @Override
+    public ResponseStatus status() {
+        return status;
+    }
 }

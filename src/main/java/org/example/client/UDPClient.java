@@ -23,7 +23,7 @@ public class UDPClient implements AutoCloseable {
     private final DatagramChannel channel;
 
     public UDPClient(String host, int port) throws Exception {
-        this.serverAddress = new InetSocketAddress("localhost", 5555);
+        this.serverAddress = new InetSocketAddress(host, port);
         this.channel = DatagramChannel.open();
 
         // По ТЗ: Неблокирующий режим
@@ -36,7 +36,7 @@ public class UDPClient implements AutoCloseable {
         System.out.println("[DEBUG] Клиент успешно привязан к порту: " + channel.getLocalAddress());
     }
 
-    public Response sendRequest(Request request) throws Exception {
+    public Response sendRequest(Request request){
        try {
             // Сериализация запроса
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
