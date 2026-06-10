@@ -174,13 +174,21 @@ public class PersonFactory {
         Location location = new Location(locX, locY);
         location.setName(locName);
 
-        return new Person(
-                id, name,
+        Person person = new Person(
+                id,
+                name,
                 new Coordinates(x, y),
-                creationDate, height, passportID,
-                nationality, hairColor,
+                height,
                 location
         );
+
+        // Выставляем остальные поля через сеттеры
+        person.setCreationDate(creationDate);
+        person.setPassportID(passportID);
+        person.setNationality(nationality);
+        person.setHairColor(hairColor);
+
+        return person;
     }
 
     /**

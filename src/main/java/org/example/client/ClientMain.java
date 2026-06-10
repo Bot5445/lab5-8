@@ -14,19 +14,18 @@ import java.util.Scanner;
  */
 public class ClientMain {
     public static void main(String[] args) {
-        if (args.length < 2) {
-            System.err.println("Использование: java ClientMain <host> <port>");
-            System.exit(0);
+        String host = "localhost";
+
+        int port = 5555;
+        if (args.length == 1) {
+            port = Integer.parseInt(args[0]);
         }
-        String host = "localhost"; // args[0];
-        int port = 5555; // Integer.parseInt(args[1]);
 
         try (UDPClient udpClient = new UDPClient(host, port);
              Scanner scanner = new Scanner(System.in)) {
 
             PersonInputReader personReader = new PersonInputReader(scanner);
 
-            // === ЭТАП АВТОРИЗАЦИИ ===
             System.out.println("=== Авторизация ===");
             String username = "";
             String password = "";

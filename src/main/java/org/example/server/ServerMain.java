@@ -31,7 +31,7 @@ import java.util.concurrent.Executors;
  */
 public class ServerMain {
     private static final Logger logger = LoggerFactory.getLogger(ServerMain.class);
-    private static final int PORT = 5555;
+    private static int PORT = 5555;
 
     /**
      * Точка входа серверного приложения.
@@ -40,6 +40,8 @@ public class ServerMain {
      * @param args аргументы командной строки. args[0] — порт сервера.
      */
     public static void main(String[] args) {
+        if (!args[0].isEmpty()) PORT= Integer.parseInt(args[0]);
+
         DatabaseManager dbManager = new DatabaseManager();
         CollectionManager collectionManager = new CollectionManager();
 

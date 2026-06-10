@@ -5,6 +5,7 @@ import org.example.network.Response;
 import org.example.network.ResponseStatus;
 
 import org.example.network.data.ICollManager;
+import org.example.network.data.PersonFactory;
 
 import java.util.stream.Collectors;
 
@@ -48,18 +49,43 @@ public class Show implements ICommand {
             return new Response("Коллекция пуста.", ResponseStatus.OK);
         }
 
-        // 1. Формируем заголовок с фиксированной шириной столбцов
-        String header = String.format("| %-5s | %-15s | %-10s | %-15s |", "ID", "Имя", "Рост", "Паспорт");
-        String separator = "-".repeat(55);
+        // 1. Формируем заголовок со ВСЕМИ полями объекта
+        String header = String.format(
+                "| %-4s | %-12s | %-12s | %-10s | %-6s | %-10s | %-8s | %-10s | %-15s | %-10s |",
+                "ID", "Name", "Coords", "Date", "Height", "Passport", "Color", "Country", "Location", "Owner"
+        );
+        String separator = "-".repeat(header.length());
 
-        // 2. Используем Stream API: сортируем (по compareTo в Person), форматируем, склеиваем
+        // 2. Используем Stream API: сортируем, форматируем все поля, склеиваем
         String dataLines = collectionManager.getAllPersons().stream()
-                .sorted() // Использует ваш метод compareTo (по росту, затем по ID)
+                .sorted()
                 .map(p -> {
-                    // Обрезаем длинные значения (truncate), чтобы не ломать таблицу
-                    String name = truncate(p.getName(), 15);
-                    String passport = truncate(p.getPassportID() == null ? "null" : p.getPassportID(), 15);
-                    return String.format("| %-5d | %-15s | %-10d | %-15s |", p.getId(), name, p.getHeight(), passport);
+                    // Собираем строковые представления для сложных полей
+                    String coords = p.getCoordinates().getX() + "," + p.getCoordinates().getY();
+                    String date = PersonFactory.formatDate(p.getCreationDate()); // Используем вашу фабрику
+                    String passport = p.getPassportID() == null ? "null" : p.getPassportID();
+                    String color = p.getHairColor() == null ? "null" : p.getHairColor().name();
+                    String country = p.getNationality() == null ? "null" : p.getNationality().name();
+
+                    String locName = p.getLocation().getName() == null ? "null" : p.getLocation().getName();
+                    String location = p.getLocation().getX() + "," + p.getLocation().getY() + "," + locName;
+
+                    String owner = p.getOwner() == null ? "null" : p.getOwner();
+
+                    // Форматируем строку с учетом всех полей
+                    return String.format(
+                            "| %-4d | %-12s | %-12s | %-10s | %-6d | %-10s | %-8s | %-10s | %-15s | %-10s |",
+                            p.getId(),
+                            truncate(p.getName(), 12),
+                            truncate(coords, 12),
+                            truncate(date, 10),
+                            p.getHeight(),
+                            truncate(passport, 10),
+                            truncate(color, 8),
+                            truncate(country, 10),
+                            truncate(location, 15),
+                            truncate(owner, 10)
+                    );
                 })
                 .collect(Collectors.joining("\n"));
 

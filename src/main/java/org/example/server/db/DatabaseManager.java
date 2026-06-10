@@ -3,7 +3,12 @@ package org.example.server.db;
 import org.example.network.data.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -12,12 +17,30 @@ import java.util.List;
 
 public class DatabaseManager {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
+
     private final String url = "jdbc:postgresql://pg:5432/studs";
-    // Имя пользователя и пароль совпадают (задаются через переменные окружения или жестко, если разрешено)
-    private final String user = "s505192";      // Ваш логин от pg/studs
-    private final String password = "IokE/3239"; // Ваш пароль от pg/studs.
+    private final String host = "pg";
+    private final int port = 5432;
+    private final String database = "studs";
+
+    private final String user;
+    private final String password;
 
     public DatabaseManager() {
+        // 1. Пытаемся прочитать логин и пароль из .pgpass (как сказал преподаватель)
+        String[] credentials = loadCredentialsFromPgPass(host, port, database);
+
+        if (!credentials[0].isEmpty()) {
+            this.user = credentials[0];
+            this.password = credentials[1];
+            logger.info("Учетные данные успешно загружены из .pgpass для пользователя: {}", this.user);
+        } else {
+            // 2. Фоллбэк: если .pgpass не найден (например, при запуске на локальном Windows)
+            this.user = System.getenv("DB_USER") != null ? System.getenv("DB_USER") : "s505192";
+            this.password = System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "";
+            logger.warn("⚠Файл .pgpass не найден. Используются переменные окружения DB_USER/DB_PASSWORD.");
+        }
+
         try {
             Class.forName("org.postgresql.Driver");
             logger.info("Драйвер PostgreSQL загружен.");
@@ -30,7 +53,70 @@ public class DatabaseManager {
         return DriverManager.getConnection(url, user, password);
     }
 
-    // Хеширование пароля алгоритмом SHA-384
+    /**
+     * для чтения .pgpass
+     * @param host
+     * @param port
+     * @param database
+     * @return
+     */
+    private static String[] loadCredentialsFromPgPass(String host, int port, String database) {
+        String pgPassPath = firstNonBlank(
+                System.getenv("PGPASSFILE"),
+                Path.of(System.getProperty("user.home"), ".pgpass").toString()
+        );
+
+        if (pgPassPath == null) {
+            return new String[]{"", ""};
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(pgPassPath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String trimmed = line.trim();
+                if (trimmed.isEmpty() || trimmed.startsWith("#")) {
+                    continue;
+                }
+
+                String[] parts = trimmed.split(":", 5);
+                if (parts.length != 5) {
+                    continue;
+                }
+
+                if (!fieldMatches(parts[0], host)
+                        || !fieldMatches(parts[1], String.valueOf(port))
+                        || !fieldMatches(parts[2], database)) {
+                    continue;
+                }
+
+                // parts[3] - это логин, parts[4] - это пароль
+                return new String[]{parts[3], parts[4]};
+            }
+        } catch (IOException exception) {
+            // Файл не найден или нет прав на чтение
+        }
+
+        return new String[]{"", ""};
+    }
+
+    private static String firstNonBlank(String... strings) {
+        for (String s : strings) {
+            if (s != null && !s.isBlank()) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    private static boolean fieldMatches(String pattern, String value) {
+        return "*".equals(pattern) || pattern.equalsIgnoreCase(value);
+    }
+
+    /**
+     * Хеширование пароля алгоритмом SHA-384
+     * @param password пароль для шифрования
+     * @return зашифрованный пароль
+     */
     public static String hashPassword(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-384");
@@ -54,7 +140,7 @@ public class DatabaseManager {
             return true;
         } catch (SQLException e) {
             logger.warn("Ошибка регистрации пользователя {}: {}", username, e.getMessage());
-            return false; // Пользователь уже существует или другая ошибка
+            return false;
         }
     }
 
@@ -134,10 +220,13 @@ public class DatabaseManager {
 
     // Вставка объекта. Возвращает сохраненный объект с присвоенным ID из sequence, или null при ошибке
     public Person insertPerson(Person person) {
+
         String sql = "INSERT INTO persons (name, coord_x, coord_y, creation_date, height, passport_id, hair_color, nationality, loc_x, loc_y, loc_name, owner) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING id";
+                "VALUES (?, ?, ?, ?, ?, ?, ?::color_enum, ?::country_enum, ?, ?, ?, ?) RETURNING id";
+
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
             pstmt.setString(1, person.getName());
             pstmt.setFloat(2, person.getCoordinates().getX());
             pstmt.setFloat(3, person.getCoordinates().getY());
@@ -188,7 +277,7 @@ public class DatabaseManager {
      */
     public boolean updatePerson(Person person) {
         String sql = "UPDATE persons SET name=?, coord_x=?, coord_y=?, creation_date=?, height=?, " +
-                "passport_id=?, hair_color=?, nationality=?, loc_x=?, loc_y=?, loc_name=? " +
+                "passport_id=?, hair_color=?::color_enum, nationality=?::country_enum, loc_x=?, loc_y=?, loc_name=? " +
                 "WHERE id=? AND owner=?";
 
         try (Connection conn = getConnection();
@@ -207,7 +296,7 @@ public class DatabaseManager {
             pstmt.setString(11, person.getLocation().getName());
 
             pstmt.setInt(12, person.getId());
-            pstmt.setString(13, person.getOwner()); // Защита: обновим только если владелец совпадает
+            pstmt.setString(13, person.getOwner());
 
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {

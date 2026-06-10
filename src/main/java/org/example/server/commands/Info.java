@@ -44,12 +44,26 @@ public class Info implements ICommand {
         if (collectionManager.isEmpty())
             return new Response("Коллекция пустая");
 
-        StringBuilder str= new StringBuilder();
-        str.append("-".repeat(10)+"Persons"+"-".repeat(10)+"\n");
+        StringBuilder str = new StringBuilder();
+        // Добавляем столбец "Владелец" перед ID
+        str.append(String.format("%-15s | %-10s | %-15s%n", "Владелец", "ID", "Имя"));
+        str.append("-".repeat(45)).append("\n");
+
         for (Person p : collectionManager.getAllPersons()) {
-            str.append(format("%-10s  |  %-10s%n", p.getId(), p.getName()));
+            String owner = p.getOwner() == null ? "неизвестно" : p.getOwner();
+
+            // Простая обрезка, если логин слишком длинный, чтобы не ломать таблицу
+            if (owner.length() > 15) {
+                owner = owner.substring(0, 12) + "...";
+            }
+
+            str.append(String.format("%-15s | %-10d | %-15s%n",
+                    owner,
+                    p.getId(),
+                    p.getName()));
         }
-        str.append("-".repeat(27)+"\n");
+        str.append("-".repeat(45)).append("\n");
+
         return new Response(str.toString());
     }
 

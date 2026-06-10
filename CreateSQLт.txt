@@ -1,0 +1,61 @@
+When trying to update a password, this return status indicates that the value provided as the current password is not correct.
+IokE/3239
+
+psql -U s505192
+
+-- 1. Таблица пользователей
+CREATE TABLE IF NOT EXISTS users (
+    username VARCHAR(50) PRIMARY KEY,
+    password_hash VARCHAR(128) NOT NULL
+);
+
+-- 2. Перечисления (ENUM)
+CREATE TYPE color_enum AS ENUM ('RED', 'BLACK', 'ORANGE', 'BROWN');
+CREATE TYPE country_enum AS ENUM ('FRANCE', 'INDIA', 'NORTH_KOREA');
+
+-- 3. Последовательность для генерации ID
+CREATE SEQUENCE IF NOT EXISTS person_id_seq START 1;
+
+-- 4. Таблица коллекции с ограничениями целостности (Domain Integrity)
+CREATE TABLE IF NOT EXISTS persons (
+    -- ID генерируется из sequence. Привязываем sequence к колонке для корректного удаления
+    id INT PRIMARY KEY DEFAULT nextval('person_id_seq'),
+    
+    -- Имя: не null, только латиница, '&' и '-' (соответствует regex в Java)
+    name VARCHAR(255) NOT NULL CHECK (name ~ '^[a-zA-Z&\-]+$' AND length(trim(name)) > 0),
+    
+    -- Координаты: float в Java -> REAL в PostgreSQL
+    coord_x REAL NOT NULL,
+    coord_y REAL NOT NULL,
+    
+    -- Дата создания
+    creation_date TIMESTAMP NOT NULL,
+    
+    -- Рост: Long в Java, должен быть > 0
+    height BIGINT NOT NULL CHECK (height > 0),
+    
+    -- PassportID: может быть null, но если есть, то 1-32 латинских символа или цифры
+    passport_id VARCHAR(32) CHECK (passport_id IS NULL OR passport_id ~ '^[A-Za-z0-9]{1,32}$'),
+    
+    -- Цвет волос: используем ENUM вместо VARCHAR
+    hair_color color_enum,
+    
+    -- Национальность: используем ENUM вместо VARCHAR
+    nationality country_enum,
+    
+    -- Локация: long -> BIGINT, Double -> DOUBLE PRECISION
+    loc_x BIGINT NOT NULL,
+    loc_y DOUBLE PRECISION NOT NULL,
+    loc_name VARCHAR(255),
+    
+    -- Владелец: не может быть null, каскадное удаление при удалении пользователя
+    owner VARCHAR(50) NOT NULL REFERENCES users(username) ON DELETE CASCADE
+);
+
+-- Привязываем последовательность к колонке id (best practice в PostgreSQL)
+ALTER SEQUENCE person_id_seq OWNED BY persons.id;
+
+-- 5. Индексы (Ускоряет проверку прав владельца и фильтрацию)
+CREATE INDEX IF NOT EXISTS idx_persons_owner ON persons(owner);
+-- Ускоряет поиск по ID при удалении/обновлении (хотя PK уже создает индекс, явный индекс по owner+id полезен для составных проверок)
+CREATE INDEX IF NOT EXISTS idx_persons_owner_id ON persons(owner, id);

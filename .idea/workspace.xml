@@ -4,115 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00967bb3-cb6d-46b1-a40b-6042d3258cca" name="Changes" comment="Передача файла по UDP (исправлена). executor делает 5 попыток">
-      <change afterPath="$PROJECT_DIR$/UML/client-network.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UML/client.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UML/network.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UML/server_commands.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UML/server_network_ioStorage.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/server/db/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="00967bb3-cb6d-46b1-a40b-6042d3258cca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-16.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-17.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-18.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-19.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/COPYRIGHT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/jquery.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/jqueryUI.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/client/ClientMain.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/client/PersonInputReader.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/client/ScriptExecutor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/client/UDPClient.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/client/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/client/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/CommandRules.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/Request.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/Response.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/ResponseStatus.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/CollectionManager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/Color.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/Coordinates.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/Country.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/ICollManager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/ICrud.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/IGetterSetter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/IRemoveKey.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/IsKey.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/Location.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/Person.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/PersonFactory.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/PersonFieldUpdater.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/data/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/network/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/CommandProcessor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/RequestReceiver.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/RequestWrapper.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/ResponseSender.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/ServerMain.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Clear.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Exit.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/FilterContainsPassportID.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/FilterStartsWithName.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Help.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/ICommand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Info.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Insert.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/RemoveKey.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/RemoveLower.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/RemoveLowerKey.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/ReplaceIfGreater.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Show.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/SumOfHeight.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/Update.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/commands/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/ioStorage/FileStorage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/ioStorage/IStorage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/ioStorage/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/ioStorage/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/org/example/server/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/resources/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/script-dir/jquery-3.6.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/script-dir/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/script-dir/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file2.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/ClientMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/client/ClientMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/client/ScriptExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/client/ScriptExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/data/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/data/CollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/network/data/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/network/data/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/CommandProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/ServerMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/ServerMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Clear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Insert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLowerKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/RemoveLowerKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/ReplaceIfGreater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/ReplaceIfGreater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Update.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/db/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/server/db/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/server/server_java_files.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,24 +23,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="181" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="UML Class" />
-      </list>
-    </option>
+    <option name="cachedIndexableFilesCount" value="180" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="lab6" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -157,7 +45,7 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -174,7 +62,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.ClientMain.executor": "Run",
-    "DefaultPlantUmlFileTemplate": "UML Class",
     "JAR Application.lab6_Client.jar.executor": "Run",
     "Maven.lab5-8 [clean].executor": "Run",
     "Maven.lab5-8 [package].executor": "Run",
@@ -187,7 +74,6 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "lab7",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Bot/Downloads/java/lab6/UML",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -199,11 +85,6 @@
     "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Bot\Downloads\java\lab6\UML" />
-    </key>
-  </component>
   <component name="RunManager" selected="Application.ClientMain">
     <configuration name="ClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.client.ClientMain" />
