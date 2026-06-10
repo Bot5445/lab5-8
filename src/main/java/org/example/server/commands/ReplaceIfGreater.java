@@ -5,6 +5,7 @@ import org.example.network.Response;
 import org.example.network.ResponseStatus;
 import org.example.network.data.ICollManager;
 import org.example.network.data.Person;
+import org.example.server.db.DatabaseManager;
 
 import java.time.LocalDateTime;
 
@@ -17,14 +18,16 @@ import java.time.LocalDateTime;
  */
 public class ReplaceIfGreater implements ICommand{
     private final ICollManager collectionManager;
+    private final DatabaseManager dbManager;
 
     /**
      * Конструктор команды.
      *
      * @param collectionManager менеджер коллекции, предоставляющий доступ к данным
      */
-    public ReplaceIfGreater(ICollManager collectionManager) {
+    public ReplaceIfGreater(ICollManager collectionManager, DatabaseManager dbManager) {
         this.collectionManager = collectionManager;
+        this.dbManager = dbManager;
     }
 
     /**
@@ -50,7 +53,6 @@ public class ReplaceIfGreater implements ICommand{
      */
     @Override
     public Response execute(Request request) {
-        // 1. Получаем ID из строковых аргументов запроса (клиент передал его в той же строке, что и команду)
         String args = request.args();
         if (args == null || args.trim().isEmpty()) {
             return new Response("Ошибка: укажите ID элемента.", ResponseStatus.ERROR);
@@ -63,29 +65,35 @@ public class ReplaceIfGreater implements ICommand{
             return new Response("Ошибка: ID должен быть целым числом.", ResponseStatus.ERROR);
         }
 
-        // 2. Получаем готовый объект Person от клиента
+        Person oldPerson = collectionManager.getPersonById(id);
+        if (oldPerson == null) {
+            return new Response("Элемент с ID " + id + " не найден.", ResponseStatus.ERROR);
+        }
+
+        // ПРОВЕРКА ВЛАДЕЛЬЦА
+        if (!oldPerson.getOwner().equals(request.username())) {
+            return new Response("Ошибка: У вас нет прав на изменение чужого объекта.", ResponseStatus.ERROR);
+        }
+
         Person newPerson = request.person();
         if (newPerson == null) {
             return new Response("Ошибка: отсутствует объект Person для сравнения.", ResponseStatus.ERROR);
         }
 
-        // 3. Проверяем, существует ли элемент с таким ID
-        if (!collectionManager.containsId(id)) {
-            return new Response("Элемент с ID " + id + " не найден.", ResponseStatus.ERROR);
-        }
-
-        // 4. Получаем старый элемент из коллекции
-        Person oldPerson = collectionManager.getPersonById(id);
-
-        // 5. Сравниваем (используем ваш метод compareTo из Person)
-        // Если новый элемент больше старого -> заменяем
         if (newPerson.compareTo(oldPerson) > 0) {
-            // Назначаем новому объекту ID и дату (сервер генерирует авто-поля!)
             newPerson.setId(id);
+            newPerson.setOwner(request.username());
             newPerson.setCreationDate(LocalDateTime.now());
 
-            collectionManager.updatePerson(id, newPerson);
-            return new Response("Элемент с ID " + id + " успешно заменен на больший.", ResponseStatus.OK);
+            // 1. Обновляем в БД (можно использовать тот же updatePerson или отдельный метод)
+            boolean updatedInDb = dbManager.updatePerson(newPerson);
+
+            if (updatedInDb) {
+                collectionManager.updatePerson(id, newPerson);
+                return new Response("Элемент с ID " + id + " успешно заменен на больший.", ResponseStatus.OK);
+            } else {
+                return new Response("Ошибка при сохранении в базу данных.", ResponseStatus.ERROR);
+            }
         } else {
             return new Response("Новый элемент не больше старого. Замена не произведена.", ResponseStatus.OK);
         }

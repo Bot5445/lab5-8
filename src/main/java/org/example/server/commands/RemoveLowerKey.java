@@ -4,19 +4,26 @@ import org.example.network.Request;
 import org.example.network.Response;
 import org.example.network.ResponseStatus;
 import org.example.network.data.ICollManager;
+import org.example.network.data.Person;
+import org.example.server.db.DatabaseManager;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Команда для удаления всех элементов коллекции, ключ (ID) которых меньше заданного.
  */
 public class RemoveLowerKey implements ICommand {
     private final ICollManager collectionManager;
+    private final DatabaseManager dbManager;
 
     /**
      * Создает команду remove_lower_key.
      * @param collectionManager менеджер коллекции
      */
-    public RemoveLowerKey(ICollManager collectionManager) {
+    public RemoveLowerKey(ICollManager collectionManager, DatabaseManager dbManager) {
         this.collectionManager = collectionManager;
+        this.dbManager = dbManager;
     }
 
     /**
@@ -37,27 +44,40 @@ public class RemoveLowerKey implements ICommand {
      */
     @Override
     public Response execute(Request request) {
-        // 1. Получаем аргументы из запроса
         String args = request.args();
-
         if (args == null || args.trim().isEmpty()) {
             return new Response("Ошибка: укажите ключ (ID) для сравнения.", ResponseStatus.ERROR);
         }
 
+        int thresholdId;
         try {
-            // 2. Парсим ID
-            int thresholdId = Integer.parseInt(args.trim());
-
-            // 3. Вызываем метод менеджера (он уже реализован через Stream API!)
-            int removedCount = collectionManager.removeLowerKey(thresholdId);
-
-            // 4. Возвращаем успешный ответ
-            return new Response("Удалено элементов с ключом меньше " + thresholdId + ": " + removedCount, ResponseStatus.OK);
-
+            thresholdId = Integer.parseInt(args.trim());
         } catch (NumberFormatException e) {
-            // Если клиент почему-то прислал не число (хотя должен был валидировать)
             return new Response("Ошибка: ключ должен быть целым числом.", ResponseStatus.ERROR);
         }
+
+        String currentUser = request.username();
+
+        // Stream API: фильтрация по ключу И по владельцу
+        List<Integer> idsToRemove = collectionManager.getAllPersons().stream()
+                .filter(p -> p.getId() < thresholdId)
+                .filter(p -> p.getOwner() != null && p.getOwner().equals(currentUser))
+                .map(Person::getId)
+                .collect(Collectors.toList());
+
+        if (idsToRemove.isEmpty()) {
+            return new Response("Нет принадлежащих вам элементов с ключом меньше " + thresholdId + ".", ResponseStatus.OK);
+        }
+
+        int deletedCount = 0;
+        for (Integer id : idsToRemove) {
+            if (dbManager.deletePerson(id, currentUser)) {
+                collectionManager.deletePerson(id);
+                deletedCount++;
+            }
+        }
+
+        return new Response("Удалено принадлежащих вам элементов с ключом меньше " + thresholdId + ": " + deletedCount, ResponseStatus.OK);
     }
 
     /**

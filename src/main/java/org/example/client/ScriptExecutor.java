@@ -16,12 +16,14 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ScriptExecutor {
     private final UDPClient udpClient;
+    private final String username;
+    private final String password;
+    private static final Set<String> runningScripts = ConcurrentHashMap.newKeySet(); // Потокобезопасный Set для защиты от рекурсии
 
-    // Потокобезопасный Set для защиты от рекурсии
-    private static final Set<String> runningScripts = ConcurrentHashMap.newKeySet();
-
-    public ScriptExecutor(UDPClient udpClient) {
+    public ScriptExecutor(UDPClient udpClient, String username, String password) {
         this.udpClient = udpClient;
+        this.username = username;
+        this.password = password;
     }
 
     public void executeScript(String filePath) {
@@ -29,18 +31,14 @@ public class ScriptExecutor {
             System.out.println("Ошибка: укажите имя файла.");
             return;
         }
-
         filePath = filePath.trim().replace("\"", "");
-
-        // Проверка на рекурсию
         if (runningScripts.contains(filePath)) {
-            System.out.println("Ошибка: Обнаружена рекурсия! Файл \"" + filePath + "\" уже выполняется.");
+            System.out.println("Ошибка: Обнаружена рекурсия!");
             return;
         }
-
         File scriptFile = new File(filePath);
-        if (!scriptFile.exists() || !scriptFile.canRead()) {
-            System.out.println("Файл не найден или нет прав на чтение: \"" + filePath + "\".");
+        if (!scriptFile.exists()) {
+            System.out.println("Файл не найден: \"" + filePath + "\".");
             return;
         }
 
@@ -48,74 +46,35 @@ public class ScriptExecutor {
         System.out.println("--- Начало выполнения скрипта: " + filePath + " ---");
 
         try (Scanner fileScanner = new Scanner(scriptFile)) {
-            int lineNumber = 0;
-
             while (fileScanner.hasNextLine()) {
-                lineNumber++;
                 String line = fileScanner.nextLine().trim();
-
-                // Пропускаем пустые строки и комментарии
                 if (line.isEmpty() || line.startsWith("#")) continue;
-
                 System.out.println("> " + line);
+
                 String[] tokens = line.split("\\s+", 2);
                 String commandName = tokens[0];
                 String stringArgs = (tokens.length > 1) ? tokens[1] : null;
 
-                if ("exit".equals(commandName)) {
-                    System.out.println("Команда 'exit' пропущена внутри скрипта.");
-                    continue;
-                }
-
-                // Проверка на команды, требующие интерактивного ввода
+                if ("exit".equals(commandName)) continue;
                 if (CommandRules.requiresCompoundData(commandName)) {
-                    System.out.println("Пропуск: Команда '" + commandName + "' требует ручного ввода и не может быть в скрипте.");
+                    System.out.println("Пропуск: Команда '" + commandName + "' требует ручного ввода.");
                     continue;
                 }
 
-                Request request = new Request(commandName, stringArgs, null);
+                // ВАЖНО: Вставляем username и password в запрос из скрипта
+                Request request = new Request(commandName, stringArgs, null, username, password);
 
-                // repeater
-                int maxRetries = 5;
-                boolean commandSuccess = false;
-
-                for (int attempt = 1; attempt <= maxRetries; attempt++) {
-                    try {
-                        Response response = udpClient.sendRequest(request);
-
-                        if (response != null) {
-                            // Успех: сервер ответил
-                            System.out.println(response.message());
-                            commandSuccess = true;
-                            break; // Выходим из цикла попыток, переходим к следующей команде
-                        } else {
-                            // Неудача: таймаут (response == null)
-                            if (attempt < maxRetries) {
-                                System.out.println("Попытка " + attempt + " из " + maxRetries + " не удалась (таймаут). Сервер не ответил. Повторная отправка команды '" + commandName + "' через 0.5 сек...");
-                                Thread.sleep(500); // Пауза, чтобы дать серверу время обработать очередь
-                            }
-                        }
-                    } catch (Exception e) {
-                        System.out.println("Сетевая ошибка при попытке " + attempt + ": " + e.getMessage());
-                        if (attempt < maxRetries) {
-                            try { Thread.sleep(500); } catch (InterruptedException ie) { /* игнорируем */ }
-                        }
-                    }
-                }
-
-                // Если все попытки провалились, ПРЕКРАЩАЕМ выполнение скрипта
-                if (!commandSuccess) {
-                    System.err.println("КРИТИЧЕСКАЯ ОШИБКА в строке " + lineNumber + ": Не удалось выполнить команду '" + commandName + "' после " + maxRetries + " попыток. Сервер недоступен. Выполнение скрипта прервано.");
-                    break; // <--- ЭТОТ ОПЕРАТОР ОСТАНАВЛИВАЕТ ВЕСЬ СКРИПТ
+                Response response = udpClient.sendRequest(request);
+                if (response != null) {
+                    System.out.println(response.message());
+                } else {
+                    System.err.println("Сервер не ответил. Прерывание скрипта.");
+                    break;
                 }
             }
-
-            System.out.println("--- Конец выполнения скрипта: " + filePath + " ---");
-
         } catch (FileNotFoundException e) {
-            System.err.println("Файл \"" + filePath + "\" не найден.");
+            System.err.println("Файл не найден.");
         } finally {
-            // Обязательно удаляем скрипт из списка выполняющихся при любом исходе
             runningScripts.remove(filePath);
         }
     }

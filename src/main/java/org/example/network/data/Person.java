@@ -18,6 +18,9 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public final class Person implements Serializable, Comparable<Person> {
+    @Setter
+    private String owner; // Имя пользователя, создавшего объект
+
     @Serial
     private static final long serialVersionUID = 1L;
     /**
@@ -98,21 +101,16 @@ public final class Person implements Serializable, Comparable<Person> {
      */
     @Override
     public String toString() {
-        String hairColor = "null";
-        if (this.hairColor != null) {
-            hairColor = this.hairColor.toString();
-        }
-        String nationality = "null";
-        if (this.nationality != null) {
-            nationality = this.nationality.toString();
-        }
-        // Используем PersonFactory для форматирования даты
+        String hairColor = this.hairColor != null ? this.hairColor.toString() : "null";
+        String nationality = this.nationality != null ? this.nationality.toString() : "null";
         String dateStr = PersonFactory.formatDate(this.creationDate);
 
+        // Убрали owner отсюда, чтобы не ломать формат CSV
         return id.toString() + "," + name + "," + coordinates.toString() + ","
-                + dateStr + ","+ height.toString()+","+passportID +","
+                + dateStr + "," + height.toString() + "," + passportID + ","
                 + hairColor + "," + nationality + "," + location;
     }
+
     /**
     * Возвращает массив заголовков всех полей класса для формирования шапки таблицы/CSV.
     * @return массив имен полей

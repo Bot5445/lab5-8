@@ -5,6 +5,7 @@ import org.example.network.data.Person;
 import org.example.network.Request;
 import org.example.network.Response;
 import org.example.network.ResponseStatus;
+import org.example.server.db.DatabaseManager;
 
 import java.time.LocalDateTime;
 
@@ -14,9 +15,11 @@ import java.time.LocalDateTime;
  */
 public class Insert implements ICommand {
     private final ICollManager collectionManager;
+    private final DatabaseManager dbManager;
 
-    public Insert(ICollManager collectionManager) {
+    public Insert(ICollManager collectionManager, DatabaseManager dbManager) {
         this.collectionManager = collectionManager;
+        this.dbManager = dbManager;
     }
 
     @Override
@@ -34,18 +37,22 @@ public class Insert implements ICommand {
     @Override
     public Response execute(Request request) {
         Person person = request.person();
-        if (person == null) {
-            return new Response("Ошибка: Отсутствует объект Person.", ResponseStatus.ERROR);
-        }
+        if (person == null) return new Response("Ошибка: Отсутствует объект Person.", ResponseStatus.ERROR);
 
-        // 1. Генерация ID и Даты на сервере!
-        int newId = collectionManager.generateNextId();
-        person.setId(newId);
+        // Сервер сам назначает владельца на основе авторизованного запроса (защита от подделки)
+        person.setOwner(request.username());
         person.setCreationDate(LocalDateTime.now());
 
-        // 2. Добавление
-        collectionManager.addPerson(person);
-        return new Response("Элемент успешно добавлен с ID " + newId, ResponseStatus.OK);
+        // 1. Сначала сохраняем в БД (там же сработает sequence для ID)
+        Person savedPerson = dbManager.insertPerson(person);
+
+        if (savedPerson != null) {
+            // 2. Обновляем состояние коллекции в памяти ТОЛЬКО при успешном добавлении в БД
+            collectionManager.addPerson(savedPerson);
+            return new Response("Элемент успешно добавлен с ID " + savedPerson.getId(), ResponseStatus.OK);
+        } else {
+            return new Response("Ошибка: Не удалось сохранить объект в базе данных.", ResponseStatus.ERROR);
+        }
     }
 
     /**

@@ -1,6 +1,8 @@
 package org.example.network.data;
 
 import java.util.*;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
 
 /**
@@ -8,6 +10,7 @@ import java.util.stream.Collectors;
  */
 public class CollectionManager implements ICollManager {
     private final Map<Integer, Person> collection = new TreeMap<>();
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
 
 
     /**
@@ -15,9 +18,13 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public Map<Integer, Person> getPerson() {
-        return collection;
+        lock.readLock().lock();
+        try {
+            return new TreeMap<>(collection); // Возвращаем копию для безопасности
+        } finally {
+            lock.readLock().unlock();
+        }
     }
-
     /**
      * Добавляет объект Person в коллекцию. Ключом становится ID объекта.
      * Если объект с таким ID уже существует, он будет перезаписан.
@@ -26,9 +33,13 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public void addPerson(Person person) {
-        collection.put(person.getId(), person);
+        lock.writeLock().lock();
+        try {
+            collection.put(person.getId(), person);
+        } finally {
+            lock.writeLock().unlock();
+        }
     }
-
     /**
      * Удаляет объект из коллекции по его ID.
      *
@@ -36,7 +47,12 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public void deletePerson(Integer id) {
-        collection.remove(id);
+        lock.writeLock().lock();
+        try {
+            collection.remove(id);
+        } finally {
+            lock.writeLock().unlock();
+        }
     }
 
     /**
@@ -48,11 +64,13 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public void updatePerson(Integer id, Person person) {
-        if (collection.containsKey(id)) {
-            collection.remove(id);
-            collection.put(id, person);
-        } else {
-            throw new IllegalArgumentException("No id");
+        lock.writeLock().lock();
+        try {
+            if (collection.containsKey(id)) {
+                collection.put(id, person);
+            }
+        } finally {
+            lock.writeLock().unlock();
         }
     }
 
@@ -61,7 +79,12 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public void clear() {
-        collection.clear();
+        lock.writeLock().lock();
+        try {
+            collection.clear();
+        } finally {
+            lock.writeLock().unlock();
+        }
     }
 
     /**
@@ -70,7 +93,12 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public boolean containsId(Integer id) {
-        return collection.containsKey(id);
+        lock.readLock().lock();
+        try {
+            return collection.containsKey(id);
+        } finally {
+            lock.readLock().unlock();
+        }
     }
 
     /**
@@ -79,7 +107,12 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public Person getPersonById(Integer id) {
-        return collection.get(id);
+        lock.readLock().lock();
+        try {
+            return collection.get(id);
+        } finally {
+            lock.readLock().unlock();
+        }
     }
 
     /**
@@ -87,9 +120,14 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public void setPersons(List<Person> persons) {
-        collection.clear();
-        for (Person p : persons) {
-            collection.put(p.getId(), p);
+        lock.writeLock().lock();
+        try {
+            collection.clear();
+            for (Person p : persons) {
+                collection.put(p.getId(), p);
+            }
+        } finally {
+            lock.writeLock().unlock();
         }
     }
 
@@ -98,28 +136,43 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public Collection<Person> getAllPersons() {
-        return collection.values(); // Возвращает коллекцию значений напрямую
+        lock.readLock().lock();
+        try {
+            return collection.values().stream().collect(Collectors.toList());
+        } finally {
+            lock.readLock().unlock();
+        }
     }
-
     /**
      * @return пустая ли коллекция
      */
     @Override
     public boolean isEmpty() {
-        return collection.isEmpty();
+        lock.readLock().lock();
+        try {
+            return collection.isEmpty();
+        } finally {
+            lock.readLock().unlock();
+        }
     }
 
     /**
      * Генерирует уникальный ID для нового элемента.
      * @return новый ID
      */
+    @Override
     public int generateNextId() {
-        if (collection.isEmpty()) return 1;
-        // Используем Stream API для поиска максимального ключа
-        return collection.keySet().stream()
-                .max(Integer::compareTo)
-                .orElse(0) + 1;
+        lock.readLock().lock();
+        try {
+            if (collection.isEmpty()) return 1;
+            return collection.keySet().stream()
+                    .max(Integer::compareTo)
+                    .orElse(0) + 1;
+        } finally {
+            lock.readLock().unlock();
+        }
     }
+
 
     /**
      * Удаляет из коллекции все элементы, которые меньше заданного шаблона.
@@ -130,14 +183,17 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public int removeLower(Person template) {
-        // Собираем ID элементов, которые меньше шаблона, и удаляем их
-        List<Integer> idsToRemove = collection.entrySet().stream()
-                .filter(entry -> entry.getValue().compareTo(template) < 0)
-                .map(Map.Entry::getKey)
-                .toList();
-
-        idsToRemove.forEach(collection::remove);
-        return idsToRemove.size();
+        lock.writeLock().lock();
+        try {
+            List<Integer> idsToRemove = collection.entrySet().stream()
+                    .filter(entry -> entry.getValue().compareTo(template) < 0)
+                    .map(Map.Entry::getKey)
+                    .toList();
+            idsToRemove.forEach(collection::remove);
+            return idsToRemove.size();
+        } finally {
+            lock.writeLock().unlock();
+        }
     }
 
     /**
@@ -148,19 +204,36 @@ public class CollectionManager implements ICollManager {
      */
     @Override
     public int removeLowerKey(int thresholdId) {
-        List<Integer> idsToRemove = collection.keySet().stream()
-                .filter(key -> key < thresholdId)
-                .toList();
-
-        idsToRemove.forEach(collection::remove);
-        return idsToRemove.size();
+        lock.writeLock().lock();
+        try {
+            List<Integer> idsToRemove = collection.keySet().stream()
+                    .filter(key -> key < thresholdId)
+                    .toList();
+            idsToRemove.forEach(collection::remove);
+            return idsToRemove.size();
+        } finally {
+            lock.writeLock().unlock();
+        }
     }
 
+    /**
+     * Возвращает строковое представление коллекции.
+     * <p>Формирует строку, где каждый элемент коллекции представлен в виде пары
+     * "ID: строковое_представление_Person", разделенных символом переноса строки.</p>
+     * Метод потокобезопасен, так как использует блокировку на чтение {@code lock.readLock()}.
+     *
+     * @return строка, содержащая отформатированные данные всех элементов коллекции
+     */
     @Override
     public String toString() {
-        return collection.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue().toString())
-                .collect(Collectors.joining("\n"));
+        lock.readLock().lock();
+        try {
+            return collection.entrySet().stream()
+                    .map(entry -> entry.getKey() + ": " + entry.getValue().toString())
+                    .collect(Collectors.joining("\n"));
+        } finally {
+            lock.readLock().unlock();
+        }
     }
 
 }

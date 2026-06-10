@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @see Response
  */
-public record Request(String commandName, String args, Person person) implements Serializable {
+public record Request(String commandName, String args, Person person, String username, String password) implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 

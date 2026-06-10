@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?plantuml 1.2026.2?><svg
+   contentStyleType="text/css"
+   data-diagram-type="CLASS"
+   height="748.5px"
+   preserveAspectRatio="none"
+   style="width:1013px;height:748px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 1013 748"
+   width="1013px"
+   zoomAndPan="magnify"
+   id="svg119"
+   sodipodi:docname="network.svg"
+   inkscape:export-filename="network.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview119"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showguides="true"
+     inkscape:zoom="1.1369405"
+     inkscape:cx="371.17156"
+     inkscape:cy="408.55259"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-32000"
+     inkscape:window-y="-32000"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g119">
+    <sodipodi:guide
+       position="788.61766,610.64347"
+       orientation="1,0"
+       id="guide119"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     id="g119">
+    <!--cluster network/data-->
+    <g
+       class="cluster"
+       data-qualified-name="network.data"
+       data-source-line="8"
+       id="ent0002"
+       transform="translate(-13.371672,-0.62152276)"
+       style="display:inline">
+      <path
+         d="m 6.75,5.5 h 55.4233 c 0.599266,0.1817794 1.068221,0.6507345 1.25,1.25 l 3.5,10.2573 733.9904,0 c 0.69035,0 1.25,0.559644 1.25,1.25 V 743.75 c 0,0.69036 -0.55965,1.25 -1.25,1.25 L 6.75,745 C 6.0596441,745 5.5,744.44036 5.5,743.75 V 6.75 C 5.5,6.0596441 6.0596441,5.5 6.75,5.5"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="path1"
+         sodipodi:nodetypes="ccccsssssssc" />
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="5.5"
+         x2="66.923302"
+         y1="17.007299"
+         y2="17.007299"
+         id="line1" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="54.923302"
+         x="7.5"
+         y="13.5376"
+         id="text1">network/data</text>
+    </g>
+    <!--class CommandRules-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.CommandRules"
+       data-source-line="9"
+       id="ent0003"
+       transform="translate(-379.9671,437.72503)">
+      <rect
+         fill="#ffffff"
+         height="30.507299"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5"
+         width="216.1265"
+         x="769"
+         y="87.25"
+         id="rect1" />
+      <circle
+         cx="851.70972"
+         cy="94.25"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse1"
+         r="4.5" />
+      <path
+         d="m 853.0925,95.0156 1.1953,0.375 q -0.2734,0.9922 -0.914,1.4766 -0.6328,0.4844 -1.6172,0.4844 -1.2109,0 -1.9922,-0.8282 -0.7734,-0.8281 -0.7734,-2.2656 0,-1.5156 0.7812,-2.3515 0.7813,-0.8438 2.0625,-0.8438 1.1172,0 1.8125,0.6563 0.4141,0.3906 0.625,1.125 l -1.2187,0.289 q -0.1094,-0.4765 -0.4532,-0.75 -0.3359,-0.2734 -0.8281,-0.2734 -0.6797,0 -1.1015,0.4922 -0.4141,0.4843 -0.4141,1.5703 0,1.1484 0.4141,1.6406 0.414,0.4922 1.0781,0.4922 0.4922,0 0.8437,-0.3125 0.3516,-0.3125 0.5,-0.9766 z"
+         fill="#000000"
+         id="path2" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6px"
+         lengthAdjust="spacing"
+         textLength="46.957001"
+         x="860.45972"
+         y="96.6362"
+         id="text2">CommandRules</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="769.5"
+         x2="984.62653"
+         y1="101.25"
+         y2="101.25"
+         id="line2" />
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="769.5"
+         x2="984.62653"
+         y1="105.25"
+         y2="105.25"
+         id="line3" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="210.1265"
+         x="772"
+         y="114.2876"
+         id="text3"
+         style="text-decoration:underline;text-decoration-line:underline">+requiresCompoundData(commandName: String): boolean</text>
+    </g>
+    <!--class ICrud-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.ICrud"
+       data-source-line="12"
+       id="ent0004">
+      <rect
+         fill="#FFFFFF"
+         height="56.0293"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="162.0132"
+         x="372"
+         y="437.75"
+         id="rect3" />
+      <ellipse
+         cx="442.7263"
+         cy="444.75"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse3" />
+      <path
+         d="M442.3044,447.75 L442.3044,441.6641 L443.5388,441.6641 L443.5388,447.75 L442.3044,447.75 Z "
+         fill="#000000"
+         id="path3" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="16.8105"
+         x="451.4763"
+         y="447.1362"
+         id="text4">ICrud</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="372.5"
+         x2="533.5132"
+         y1="451.75"
+         y2="451.75"
+         id="line4" />
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="372.5"
+         x2="533.5132"
+         y1="455.75"
+         y2="455.75"
+         id="line5" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="101.9033"
+         x="375"
+         y="464.7876"
+         id="text5">+addPerson(person: Person)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="95.0845"
+         x="375"
+         y="473.2949"
+         id="text6">+deletePerson(id: Integer)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="156.0132"
+         x="375"
+         y="481.8022"
+         id="text7">+updatePerson(id: Integer, person: Person)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="29.0151"
+         x="375"
+         y="490.3096"
+         id="text8">+clear()</text>
+    </g>
+    <!--class IGetterSetter-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.IGetterSetter"
+       data-source-line="18"
+       id="ent0005"
+       transform="translate(-65.614482,-65.194285)">
+      <rect
+         fill="#ffffff"
+         height="56.029301"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5"
+         width="140.30569"
+         x="551.75"
+         y="437.75"
+         id="rect8" />
+      <circle
+         cx="599.95068"
+         cy="444.75"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse8"
+         r="4.5" />
+      <path
+         d="m 599.5288,447.75 v -6.0859 h 1.2344 v 6.0859 z"
+         fill="#000000"
+         id="path8" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6px"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="40.154301"
+         x="608.70068"
+         y="447.1362"
+         id="text9">IGetterSetter</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="552.25"
+         x2="691.55573"
+         y1="451.75"
+         y2="451.75"
+         id="line9" />
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="552.25"
+         x2="691.55573"
+         y1="455.75"
+         y2="455.75"
+         id="line10" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="133.1743"
+         x="554.75"
+         y="464.7876"
+         id="text10">+getPerson(): Map&lt;Integer, Person&gt;</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="130.416"
+         x="554.75"
+         y="473.29489"
+         id="text11">+getPersonById(id: Integer): Person</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="134.30569"
+         x="554.75"
+         y="481.80219"
+         id="text12">+getAllPersons(): Collection&lt;Person&gt;</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="130.52541"
+         x="554.75"
+         y="490.3096"
+         id="text13">+setPersons(persons: List&lt;Person&gt;)</text>
+    </g>
+    <!--class IRemoveKey-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.IRemoveKey"
+       data-source-line="24"
+       id="ent0006"
+       transform="translate(-140.90942)">
+      <rect
+         fill="#ffffff"
+         height="39.014599"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5"
+         width="148.56351"
+         x="709.75"
+         y="446.25"
+         id="rect13" />
+      <circle
+         cx="763.08301"
+         cy="453.25"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse13"
+         r="4.5" />
+      <path
+         d="m 762.6611,456.25 v -6.0859 h 1.2344 v 6.0859 z"
+         fill="#000000"
+         id="path13" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6px"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="38.147499"
+         x="771.83301"
+         y="455.6362"
+         id="text14">IRemoveKey</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="710.25"
+         x2="857.81348"
+         y1="460.25"
+         y2="460.25"
+         id="line14" />
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="710.25"
+         x2="857.81348"
+         y1="464.25"
+         y2="464.25"
+         id="line15" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="134.8867"
+         x="712.75"
+         y="473.2876"
+         id="text15">+removeLower(template: Person): int</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="142.56351"
+         x="712.75"
+         y="481.79489"
+         id="text16">+removeLowerKey(thresholdId: int): int</text>
+    </g>
+    <!--class IsKey-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.IsKey"
+       data-source-line="28"
+       id="ent0007"
+       transform="translate(-219.00882,-152.50059)">
+      <rect
+         fill="#ffffff"
+         height="39.014599"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5"
+         width="125.646"
+         x="875.75"
+         y="446.25"
+         id="rect16" />
+      <circle
+         cx="928.23407"
+         cy="453.25"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse16"
+         r="4.5" />
+      <path
+         d="m 927.8123,456.25 v -6.0859 h 1.2343 v 6.0859 z"
+         fill="#000000"
+         id="path16" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6px"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="16.9277"
+         x="936.98407"
+         y="455.6362"
+         id="text17">IsKey</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="876.25"
+         x2="1000.896"
+         y1="460.25"
+         y2="460.25"
+         id="line17" />
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="876.25"
+         x2="1000.896"
+         y1="464.25"
+         y2="464.25"
+         id="line18" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="119.646"
+         x="878.75"
+         y="473.2876"
+         id="text18">+containsId(id: Integer): boolean</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="73.373497"
+         x="878.75"
+         y="481.79489"
+         id="text19">+isEmpty(): boolean</text>
+    </g>
+    <!--class ICollManager-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.ICollManager"
+       data-source-line="32"
+       id="ent0008"
+       transform="translate(-41.98083)">
+      <rect
+         fill="#ffffff"
+         height="30.507299"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5"
+         width="87.699699"
+         x="594.25"
+         y="241.25"
+         id="rect19" />
+      <circle
+         cx="616.43768"
+         cy="248.25"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse19"
+         r="4.5" />
+      <path
+         d="m 616.0159,251.25 v -6.0859 h 1.2343 v 6.0859 z"
+         fill="#000000"
+         id="path19" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6px"
+         font-style="italic"
+         lengthAdjust="spacing"
+         textLength="39.5742"
+         x="625.18768"
+         y="250.6362"
+         id="text20">ICollManager</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="594.75"
+         x2="681.44971"
+         y1="255.25"
+         y2="255.25"
+         id="line20" />
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="594.75"
+         x2="681.44971"
+         y1="259.25"
+         y2="259.25"
+         id="line21" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="81.699699"
+         x="597.25"
+         y="268.2876"
+         id="text21">+generateNextId(): int</text>
+    </g>
+    <!--class CollectionManager-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.CollectionManager"
+       data-source-line="36"
+       id="ent0009"
+       transform="translate(-69.044947)">
+      <rect
+         fill="#ffffff"
+         height="158.1172"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5"
+         width="162.0132"
+         x="557"
+         y="23.5"
+         id="rect21" />
+      <circle
+         cx="608.52808"
+         cy="30.5"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.5"
+         id="ellipse21"
+         r="4.5" />
+      <path
+         d="m 609.9109,31.2656 1.1953,0.375 q -0.2734,0.9922 -0.9141,1.4766 -0.6328,0.4844 -1.6171,0.4844 -1.211,0 -1.9922,-0.8282 -0.7735,-0.8281 -0.7735,-2.2656 0,-1.5156 0.7813,-2.3515 0.7812,-0.8438 2.0625,-0.8438 1.1172,0 1.8125,0.6563 0.414,0.3906 0.625,1.125 l -1.2188,0.289 q -0.1093,-0.4765 -0.4531,-0.75 -0.3359,-0.2734 -0.8281,-0.2734 -0.6797,0 -1.1016,0.4922 -0.414,0.4843 -0.414,1.5703 0,1.1484 0.414,1.6406 0.4141,0.4922 1.0781,0.4922 0.4922,0 0.8438,-0.3125 0.3516,-0.3125 0.5,-0.9766 z"
+         fill="#000000"
+         id="path21" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6px"
+         lengthAdjust="spacing"
+         textLength="55.207001"
+         x="617.27808"
+         y="32.8862"
+         id="text22">CollectionManager</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="557.5"
+         x2="718.51318"
+         y1="37.5"
+         y2="37.5"
+         id="line22" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="122.1855"
+         x="560"
+         y="46.537601"
+         id="text23">-collection: Map&lt;Integer, Person&gt;</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="75.072304"
+         x="560"
+         y="55.044899"
+         id="text24">-lock: ReadWriteLock</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5"
+         x1="557.5"
+         x2="718.51318"
+         y1="58.514599"
+         y2="58.514599"
+         id="line24" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="133.1743"
+         x="560"
+         y="67.5522"
+         id="text25">+getPerson(): Map&lt;Integer, Person&gt;</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="101.9033"
+         x="560"
+         y="76.059601"
+         id="text26">+addPerson(person: Person)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="95.084503"
+         x="560"
+         y="84.566902"
+         id="text27">+deletePerson(id: Integer)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="156.0132"
+         x="560"
+         y="93.074203"
+         id="text28">+updatePerson(id: Integer, person: Person)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="29.0151"
+         x="560"
+         y="101.5815"
+         id="text29">+clear()</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="119.646"
+         x="560"
+         y="110.0889"
+         id="text30">+containsId(id: Integer): boolean</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="130.416"
+         x="560"
+         y="118.5962"
+         id="text31">+getPersonById(id: Integer): Person</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="130.52541"
+         x="560"
+         y="127.1035"
+         id="text32">+setPersons(persons: List&lt;Person&gt;)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="134.30569"
+         x="560"
+         y="135.61079"
+         id="text33">+getAllPersons(): Collection&lt;Person&gt;</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="73.373497"
+         x="560"
+         y="144.11819"
+         id="text34">+isEmpty(): boolean</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="81.699699"
+         x="560"
+         y="152.6255"
+         id="text35">+generateNextId(): int</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="134.8867"
+         x="560"
+         y="161.1328"
+         id="text36">+removeLower(template: Person): int</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="142.56351"
+         x="560"
+         y="169.64011"
+         id="text37">+removeLowerKey(thresholdId: int): int</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7px"
+         lengthAdjust="spacing"
+         textLength="67.217796"
+         x="560"
+         y="178.14751"
+         id="text38">+toString(): String</text>
+    </g>
+    <!--class Color-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.Color"
+       data-source-line="55"
+       id="ent0010">
+      <rect
+         fill="#FFFFFF"
+         height="56.0293"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="38.7988"
+         x="55.5"
+         y="655.5"
+         id="rect38" />
+      <ellipse
+         cx="66.1036"
+         cy="662.5"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse38" />
+      <path
+         d="M63.9708,665.5 L63.9708,659.4141 L68.4864,659.4141 L68.4864,660.4453 L65.1974,660.4453 L65.1974,661.7969 L68.2521,661.7969 L68.2521,662.8203 L65.1974,662.8203 L65.1974,664.4766 L68.6036,664.4766 L68.6036,665.5 L63.9708,665.5 Z "
+         fill="#000000"
+         id="path38" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="15.6797"
+         x="73.0155"
+         y="664.8862"
+         id="text39">Color</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="56"
+         x2="93.7988"
+         y1="669.5"
+         y2="669.5"
+         id="line39" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="17.2334"
+         x="58.5"
+         y="678.5376"
+         id="text40">RED,</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="25.7646"
+         x="58.5"
+         y="687.0449"
+         id="text41">BLACK,</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="32.7988"
+         x="58.5"
+         y="695.5522"
+         id="text42">ORANGE,</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="27.3335"
+         x="58.5"
+         y="704.0596"
+         id="text43">BROWN</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="56"
+         x2="93.7988"
+         y1="707.5293"
+         y2="707.5293"
+         id="line43" />
+    </g>
+    <!--class Country-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.Country"
+       data-source-line="61"
+       id="ent0011">
+      <rect
+         fill="#FFFFFF"
+         height="47.522"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="60.0757"
+         x="112"
+         y="659.75"
+         id="rect43" />
+      <ellipse
+         cx="128.4789"
+         cy="666.75"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse43" />
+      <path
+         d="M126.3461,669.75 L126.3461,663.6641 L130.8617,663.6641 L130.8617,664.6953 L127.5726,664.6953 L127.5726,666.0469 L130.6273,666.0469 L130.6273,667.0703 L127.5726,667.0703 L127.5726,668.7266 L130.9789,668.7266 L130.9789,669.75 L126.3461,669.75 Z "
+         fill="#000000"
+         id="path43" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="23.9004"
+         x="136.6964"
+         y="669.1362"
+         id="text44">Country</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="112.5"
+         x2="171.5757"
+         y1="673.75"
+         y2="673.75"
+         id="line44" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="30.772"
+         x="115"
+         y="682.7876"
+         id="text45">FRANCE,</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="23.854"
+         x="115"
+         y="691.2949"
+         id="text46">INDIA,</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="54.0757"
+         x="115"
+         y="699.8022"
+         id="text47">NORTH_KOREA</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="112.5"
+         x2="171.5757"
+         y1="703.272"
+         y2="703.272"
+         id="line47" />
+    </g>
+    <!--class Coordinates-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.Coordinates"
+       data-source-line="67"
+       id="ent0012">
+      <rect
+         fill="#FFFFFF"
+         height="81.5513"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="115.7065"
+         x="189.75"
+         y="642.75"
+         id="rect47" />
+      <ellipse
+         cx="227.7869"
+         cy="649.75"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse47" />
+      <path
+         d="M229.1697,650.5156 L230.365,650.8906 Q230.0916,651.8828 229.4509,652.3672 Q228.8181,652.8516 227.8337,652.8516 Q226.6228,652.8516 225.8416,652.0234 Q225.0681,651.1953 225.0681,649.7578 Q225.0681,648.2422 225.8494,647.4063 Q226.6306,646.5625 227.9119,646.5625 Q229.0291,646.5625 229.7244,647.2188 Q230.1384,647.6094 230.3494,648.3438 L229.1306,648.6328 Q229.0212,648.1563 228.6775,647.8828 Q228.3416,647.6094 227.8494,647.6094 Q227.1697,647.6094 226.7478,648.1016 Q226.3337,648.5859 226.3337,649.6719 Q226.3337,650.8203 226.7478,651.3125 Q227.1619,651.8047 227.8259,651.8047 Q228.3181,651.8047 228.6697,651.4922 Q229.0212,651.1797 229.1697,650.5156 Z "
+         fill="#000000"
+         id="path47" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="35.8828"
+         x="236.5369"
+         y="652.1362"
+         id="text48">Coordinates</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="190.25"
+         x2="304.9565"
+         y1="656.75"
+         y2="656.75"
+         id="line48" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="28.5537"
+         x="192.75"
+         y="665.7876"
+         id="text49">-x: float</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="28.5537"
+         x="192.75"
+         y="674.2949"
+         id="text50">-y: float</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="190.25"
+         x2="304.9565"
+         y1="677.7646"
+         y2="677.7646"
+         id="line50" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="109.7065"
+         x="192.75"
+         y="686.8022"
+         id="text51">+Coordinates(x: float, y: float)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="49.4033"
+         x="192.75"
+         y="695.3096"
+         id="text52">+getX(): float</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="48.9146"
+         x="192.75"
+         y="703.8169"
+         id="text53">+getY(): float</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="67.2178"
+         x="192.75"
+         y="712.3242"
+         id="text54">+toString(): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="77.2222"
+         x="192.75"
+         y="720.8315"
+         id="text55">+toStrings(): String[]</text>
+    </g>
+    <!--class Location-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.Location"
+       data-source-line="77"
+       id="ent0013">
+      <rect
+         fill="#FFFFFF"
+         height="107.0732"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="111.4956"
+         x="322.75"
+         y="630"
+         id="rect55" />
+      <ellipse
+         cx="364.0427"
+         cy="637"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse55" />
+      <path
+         d="M365.4255,637.7656 L366.6208,638.1406 Q366.3474,639.1328 365.7068,639.6172 Q365.074,640.1016 364.0896,640.1016 Q362.8787,640.1016 362.0974,639.2734 Q361.324,638.4453 361.324,637.0078 Q361.324,635.4922 362.1052,634.6563 Q362.8865,633.8125 364.1677,633.8125 Q365.2849,633.8125 365.9802,634.4688 Q366.3943,634.8594 366.6052,635.5938 L365.3865,635.8828 Q365.2771,635.4063 364.9333,635.1328 Q364.5974,634.8594 364.1052,634.8594 Q363.4255,634.8594 363.0037,635.3516 Q362.5896,635.8359 362.5896,636.9219 Q362.5896,638.0703 363.0037,638.5625 Q363.4177,639.0547 364.0818,639.0547 Q364.574,639.0547 364.9255,638.7422 Q365.2771,638.4297 365.4255,637.7656 Z "
+         fill="#000000"
+         id="path55" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="25.1602"
+         x="372.7927"
+         y="639.3862"
+         id="text56">Location</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="323.25"
+         x2="433.7456"
+         y1="644"
+         y2="644"
+         id="line56" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="27.9214"
+         x="325.75"
+         y="653.0376"
+         id="text57">-x: long</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="37.4849"
+         x="325.75"
+         y="661.5449"
+         id="text58">-y: Double</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="49.6733"
+         x="325.75"
+         y="670.0522"
+         id="text59">-name: String</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="323.25"
+         x2="433.7456"
+         y1="673.522"
+         y2="673.522"
+         id="line59" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="105.4956"
+         x="325.75"
+         y="682.5596"
+         id="text60">+Location(x: long, y: Double)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="48.771"
+         x="325.75"
+         y="691.0669"
+         id="text61">+getX(): long</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="57.8457"
+         x="325.75"
+         y="699.5742"
+         id="text62">+getY(): Double</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="70.6768"
+         x="325.75"
+         y="708.0815"
+         id="text63">+getName(): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="89.5747"
+         x="325.75"
+         y="716.5889"
+         id="text64">+setName(name: String)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="67.2178"
+         x="325.75"
+         y="725.0962"
+         id="text65">+toString(): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="77.2222"
+         x="325.75"
+         y="733.6035"
+         id="text66">+toStrings(): String[]</text>
+    </g>
+    <!--class Person-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.Person"
+       data-source-line="90"
+       id="ent0014">
+      <rect
+         fill="#FFFFFF"
+         height="268.7124"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="341.2002"
+         x="13.5"
+         y="331.5"
+         id="rect66" />
+      <ellipse
+         cx="172.0664"
+         cy="338.5"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse66" />
+      <path
+         d="M173.4492,339.2656 L174.6445,339.6406 Q174.3711,340.6328 173.7305,341.1172 Q173.0977,341.6016 172.1133,341.6016 Q170.9023,341.6016 170.1211,340.7734 Q169.3477,339.9453 169.3477,338.5078 Q169.3477,336.9922 170.1289,336.1563 Q170.9102,335.3125 172.1914,335.3125 Q173.3086,335.3125 174.0039,335.9688 Q174.418,336.3594 174.6289,337.0938 L173.4102,337.3828 Q173.3008,336.9063 172.957,336.6328 Q172.6211,336.3594 172.1289,336.3594 Q171.4492,336.3594 171.0273,336.8516 Q170.6133,337.3359 170.6133,338.4219 Q170.6133,339.5703 171.0273,340.0625 Q171.4414,340.5547 172.1055,340.5547 Q172.5977,340.5547 172.9492,340.2422 Q173.3008,339.9297 173.4492,339.2656 Z "
+         fill="#000000"
+         id="path66" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="20.3174"
+         x="180.8164"
+         y="340.8862"
+         id="text67">Person</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="14"
+         x2="354.2002"
+         y1="345.5"
+         y2="345.5"
+         id="line67" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="51.625"
+         x="16.5"
+         y="354.5376"
+         id="text68">-owner: String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="40.9233"
+         x="16.5"
+         y="363.0449"
+         id="text69">-id: Integer</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="49.6733"
+         x="16.5"
+         y="371.5522"
+         id="text70">-name: String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="91.3042"
+         x="16.5"
+         y="380.0596"
+         id="text71">-coordinates: Coordinates</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="105.3657"
+         x="16.5"
+         y="388.5669"
+         id="text72">-creationDate: LocalDateTime</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="47.8242"
+         x="16.5"
+         y="397.0742"
+         id="text73">-height: Long</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="68.6157"
+         x="16.5"
+         y="405.5815"
+         id="text74">-passportID: String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="73.6401"
+         x="16.5"
+         y="414.0889"
+         id="text75">-nationality: Country</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="58.9463"
+         x="16.5"
+         y="422.5962"
+         id="text76">-hairColor: Color</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="65.5498"
+         x="16.5"
+         y="431.1035"
+         id="text77">-location: Location</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="14"
+         x2="354.2002"
+         y1="434.5732"
+         y2="434.5732"
+         id="line77" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="335.2002"
+         x="16.5"
+         y="443.6108"
+         id="text78">+Person(id: Integer, name: String, coordinates: Coordinates, height: Long, location: Location)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="62.1455"
+         x="16.5"
+         y="452.1182"
+         id="text79">+getId(): Integer</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="67.7134"
+         x="16.5"
+         y="460.6255"
+         id="text80">+setId(id: Integer)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="70.6768"
+         x="16.5"
+         y="469.1328"
+         id="text81">+getName(): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="112.7417"
+         x="16.5"
+         y="477.6401"
+         id="text82">+getCoordinates(): Coordinates</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="126.8032"
+         x="16.5"
+         y="486.1475"
+         id="text83">+getCreationDate(): LocalDateTime</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="170.9805"
+         x="16.5"
+         y="494.6548"
+         id="text84">+setCreationDate(creationDate: LocalDateTime)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="68.8516"
+         x="16.5"
+         y="503.1621"
+         id="text85">+getHeight(): Long</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="88.6724"
+         x="16.5"
+         y="511.6694"
+         id="text86">+getPassportID(): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="126.5127"
+         x="16.5"
+         y="520.1768"
+         id="text87">+setPassportID(passportID: String)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="94.6436"
+         x="16.5"
+         y="528.6841"
+         id="text88">+getNationality(): Country</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="130.8672"
+         x="16.5"
+         y="537.1914"
+         id="text89">+setNationality(nationality: Country)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="79.9736"
+         x="16.5"
+         y="545.6987"
+         id="text90">+getHairColor(): Color</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="111.0942"
+         x="16.5"
+         y="554.2061"
+         id="text91">+setHairColor(hairColor: Color)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="87.7222"
+         x="16.5"
+         y="562.7134"
+         id="text92">+getLocation(): Location</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="93.9326"
+         x="16.5"
+         y="571.2207"
+         id="text93">+setOwner(owner: String)</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="67.2178"
+         x="16.5"
+         y="579.728"
+         id="text94">+toString(): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="85.415"
+         x="16.5"
+         y="588.2354"
+         id="text95">+getHeaders(): String[]</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         textLength="99.415"
+         x="16.5"
+         y="596.7427"
+         id="text96">+compareTo(o: Person): int</text>
+    </g>
+    <!--class PersonFactory-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.PersonFactory"
+       data-source-line="122"
+       id="ent0015">
+      <rect
+         fill="#FFFFFF"
+         height="90.0586"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="189.3296"
+         x="145.75"
+         y="211.5"
+         id="rect96" />
+      <ellipse
+         cx="217.2336"
+         cy="218.5"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse96" />
+      <path
+         d="M218.6165,219.2656 L219.8118,219.6406 Q219.5383,220.6328 218.8977,221.1172 Q218.2649,221.6016 217.2805,221.6016 Q216.0696,221.6016 215.2883,220.7734 Q214.5149,219.9453 214.5149,218.5078 Q214.5149,216.9922 215.2961,216.1563 Q216.0774,215.3125 217.3586,215.3125 Q218.4758,215.3125 219.1711,215.9688 Q219.5852,216.3594 219.7961,217.0938 L218.5774,217.3828 Q218.468,216.9063 218.1243,216.6328 Q217.7883,216.3594 217.2961,216.3594 Q216.6165,216.3594 216.1946,216.8516 Q215.7805,217.3359 215.7805,218.4219 Q215.7805,219.5703 216.1946,220.0625 Q216.6086,220.5547 217.2727,220.5547 Q217.7649,220.5547 218.1165,220.2422 Q218.468,219.9297 218.6165,219.2656 Z "
+         fill="#000000"
+         id="path96" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="42.6123"
+         x="225.9836"
+         y="220.8862"
+         id="text97">PersonFactory</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="146.25"
+         x2="334.5796"
+         y1="225.5"
+         y2="225.5"
+         id="line97" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="143.876"
+         x="148.75"
+         y="234.5376"
+         id="text98">-DATE_FORMATTER: DateTimeFormatter</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="146.25"
+         x2="334.5796"
+         y1="238.0073"
+         y2="238.0073"
+         id="line98" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="156.126"
+         x="148.75"
+         y="247.0449"
+         id="text99">+validateAndParseId(input: String): Integer</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="164.6572"
+         x="148.75"
+         y="255.5522"
+         id="text100">+validateAndParseName(input: String): String</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="180.8721"
+         x="148.75"
+         y="264.0596"
+         id="text101">+parseEnum(enumClass: Class&lt;E&gt;, str: String): E</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="155.6338"
+         x="148.75"
+         y="272.5669"
+         id="text102">-parseDate(dateStr: String): LocalDateTime</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="183.3296"
+         x="148.75"
+         y="281.0742"
+         id="text103">+parseFloat(input: String, fieldName: String): Float</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="164.4146"
+         x="148.75"
+         y="289.5815"
+         id="text104">+createFromStringArray(str: String[]): Person</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="151.751"
+         x="148.75"
+         y="298.0889"
+         id="text105">+formatDate(date: LocalDateTime): String</text>
+    </g>
+    <!--class PersonFieldUpdater-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.PersonFieldUpdater"
+       data-source-line="133"
+       id="ent0016">
+      <rect
+         fill="#FFFFFF"
+         height="39.0146"
+         rx="1.25"
+         ry="1.25"
+         style="stroke:#000000;stroke-width:0.5;"
+         width="284.5576"
+         x="84.25"
+         y="83"
+         id="rect105" />
+      <ellipse
+         cx="195.4829"
+         cy="90"
+         fill="#FFFFFF"
+         rx="4.5"
+         ry="4.5"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="ellipse105" />
+      <path
+         d="M196.8657,90.7656 L198.061,91.1406 Q197.7876,92.1328 197.147,92.6172 Q196.5142,93.1016 195.5298,93.1016 Q194.3188,93.1016 193.5376,92.2734 Q192.7642,91.4453 192.7642,90.0078 Q192.7642,88.4922 193.5454,87.6563 Q194.3267,86.8125 195.6079,86.8125 Q196.7251,86.8125 197.4204,87.4688 Q197.8345,87.8594 198.0454,88.5938 L196.8267,88.8828 Q196.7173,88.4063 196.3735,88.1328 Q196.0376,87.8594 195.5454,87.8594 Q194.8657,87.8594 194.4438,88.3516 Q194.0298,88.8359 194.0298,89.9219 Q194.0298,91.0703 194.4438,91.5625 Q194.8579,92.0547 195.522,92.0547 Q196.0142,92.0547 196.3657,91.7422 Q196.7173,91.4297 196.8657,90.7656 Z "
+         fill="#000000"
+         id="path105" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="6"
+         lengthAdjust="spacing"
+         textLength="58.3418"
+         x="204.2329"
+         y="92.3862"
+         id="text106">PersonFieldUpdater</text>
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="84.75"
+         x2="368.3076"
+         y1="97"
+         y2="97"
+         id="line106" />
+      <line
+         style="stroke:#000000;stroke-width:0.5;"
+         x1="84.75"
+         x2="368.3076"
+         y1="101"
+         y2="101"
+         id="line107" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="278.5576"
+         x="87.25"
+         y="110.0376"
+         id="text107">+updateField(oldPerson: Person, fieldName: String, newValue: String): Person</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="7"
+         lengthAdjust="spacing"
+         text-decoration="underline"
+         textLength="206.4932"
+         x="87.25"
+         y="118.5449"
+         id="text108">+getFieldValue(person: Person, fieldName: String): String</text>
+    </g>
+    <!--link ICollManager to ICrud-->
+    <g
+       class="link"
+       data-entity-1="ent0008"
+       data-entity-2="ent0004"
+       data-link-type="extension"
+       data-source-line="138"
+       id="lnk17">
+      <path
+         codeLine="138"
+         d="M 551.55723,256.5 453,256.5 v 172.245"
+         fill="none"
+         id="ICollManager-to-ICrud"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5, 3.5"
+         sodipodi:nodetypes="ccc" />
+      <polygon
+         fill="none"
+         points="453,437.745,456,428.745,450,428.745,453,437.745"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon108" />
+    </g>
+    <!--link ICollManager to IGetterSetter-->
+    <g
+       class="link"
+       data-entity-1="ent0008"
+       data-entity-2="ent0005"
+       data-link-type="extension"
+       data-source-line="139"
+       id="lnk18"
+       transform="translate(-78.675185,-65.194285)">
+      <path
+         codeLine="139"
+         d="M 638,337.14489 V 428.705"
+         fill="none"
+         id="ICollManager-to-IGetterSetter"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5, 3.5"
+         sodipodi:nodetypes="cc" />
+      <polygon
+         fill="none"
+         points="635,428.705 638,437.705 641,428.705 "
+         style="stroke:#000000;stroke-width:0.5"
+         id="polygon109" />
+    </g>
+    <!--link ICollManager to IRemoveKey-->
+    <g
+       class="link"
+       data-entity-1="ent0008"
+       data-entity-2="ent0006"
+       data-link-type="extension"
+       data-source-line="140"
+       id="lnk19"
+       transform="matrix(0.85652837,0,0,1,34.87315,0)"
+       style="stroke-width:1.08051">
+      <path
+         codeLine="140"
+         d="m 706.3925,262 h 7.9825 v 175.215"
+         fill="none"
+         id="ICollManager-to-IRemoveKey"
+         style="stroke:#000000;stroke-width:0.540255;stroke-dasharray:3.78179, 3.78179"
+         sodipodi:nodetypes="ccc" />
+      <polygon
+         fill="none"
+         points="711.375,437.215 714.375,446.215 717.375,437.215 "
+         style="stroke:#000000;stroke-width:0.540255"
+         id="polygon110" />
+    </g>
+    <!--link ICollManager to IsKey-->
+    <g
+       class="link"
+       data-entity-1="ent0008"
+       data-entity-2="ent0007"
+       data-link-type="extension"
+       data-source-line="141"
+       id="lnk20"
+       transform="translate(-73.882491)">
+      <path
+         codeLine="141"
+         d="m 713.65381,251.5 h 74.23353 v 31.79993"
+         fill="none"
+         id="ICollManager-to-IsKey"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5, 3.5"
+         sodipodi:nodetypes="ccc" />
+      <polygon
+         fill="none"
+         points="930.375,446.17 933.375,437.17 927.375,437.17 "
+         style="stroke:#000000;stroke-width:0.5"
+         id="polygon111"
+         transform="translate(-142.48766,-153.81904)" />
+    </g>
+    <!--link CollectionManager to ICollManager-->
+    <g
+       class="link"
+       data-entity-1="ent0009"
+       data-entity-2="ent0008"
+       data-link-type="extension"
+       data-source-line="142"
+       id="lnk21"
+       transform="translate(-69.044947)">
+      <path
+         codeLine="142"
+         d="m 638,181.53 c 0,22.745 0,36.255 0,50.58"
+         fill="none"
+         id="CollectionManager-to-ICollManager"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5, 3.5" />
+      <polygon
+         fill="none"
+         points="641,232.11 635,232.11 638,241.11 "
+         style="stroke:#000000;stroke-width:0.5"
+         id="polygon112" />
+    </g>
+    <!--reverse link Person to Coordinates-->
+    <g
+       class="link"
+       data-entity-1="ent0014"
+       data-entity-2="ent0012"
+       data-link-type="composition"
+       data-source-line="143"
+       id="lnk22">
+      <path
+         codeLine="143"
+         d="M247.5,606.09 C247.5,621.385 247.5,629.965 247.5,642.54"
+         fill="none"
+         id="Person-backto-Coordinates"
+         style="stroke:#000000;stroke-width:0.5;" />
+      <polygon
+         fill="#000000"
+         points="247.5,600.09,245.5,603.09,247.5,606.09,249.5,603.09,247.5,600.09"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon113" />
+    </g>
+    <!--reverse link Person to Location-->
+    <g
+       class="link"
+       data-entity-1="ent0014"
+       data-entity-2="ent0013"
+       data-link-type="composition"
+       data-source-line="144"
+       id="lnk23">
+      <path
+         codeLine="144"
+         d="M338.625,606.09 C338.625,616.49 338.625,620.56 338.625,629.895"
+         fill="none"
+         id="Person-backto-Location"
+         style="stroke:#000000;stroke-width:0.5;" />
+      <polygon
+         fill="#000000"
+         points="338.625,600.09,336.625,603.09,338.625,606.09,340.625,603.09,338.625,600.09"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon114" />
+    </g>
+    <!--link Person to Color-->
+    <g
+       class="link"
+       data-entity-1="ent0014"
+       data-entity-2="ent0010"
+       data-link-type="dependency"
+       data-source-line="145"
+       id="lnk24">
+      <path
+         codeLine="145"
+         d="M75,600.09 C75,620.975 75,637.54 75,652.46"
+         fill="none"
+         id="Person-to-Color"
+         style="stroke:#000000;stroke-width:0.5;" />
+      <polygon
+         fill="#000000"
+         points="75,655.46,77,650.96,75,652.96,73,650.96,75,655.46"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon115" />
+    </g>
+    <!--link Person to Country-->
+    <g
+       class="link"
+       data-entity-1="ent0014"
+       data-entity-2="ent0011"
+       data-link-type="dependency"
+       data-source-line="146"
+       id="lnk25">
+      <path
+         codeLine="146"
+         d="M142,600.09 C142,622.985 142,641.29 142,656.64"
+         fill="none"
+         id="Person-to-Country"
+         style="stroke:#000000;stroke-width:0.5;" />
+      <polygon
+         fill="#000000"
+         points="142,659.64,144,655.14,142,657.14,140,655.14,142,659.64"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon116" />
+    </g>
+    <!--link PersonFactory to Person-->
+    <g
+       class="link"
+       data-entity-1="ent0015"
+       data-entity-2="ent0014"
+       data-link-type="dependency"
+       data-source-line="147"
+       id="lnk26">
+      <path
+         codeLine="147"
+         d="M240.5,301.52 C240.5,310.705 240.5,317.815 240.5,328.365"
+         fill="none"
+         id="PersonFactory-to-Person"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5,3.5;" />
+      <polygon
+         fill="#000000"
+         points="240.5,331.365,242.5,326.865,240.5,328.865,238.5,326.865,240.5,331.365"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon117" />
+    </g>
+    <!--link PersonFieldUpdater to Person-->
+    <g
+       class="link"
+       data-entity-1="ent0016"
+       data-entity-2="ent0014"
+       data-link-type="dependency"
+       data-source-line="148"
+       id="lnk27">
+      <path
+         codeLine="148"
+         d="M344.875,122.03 C344.875,161.265 344.875,249.645 344.875,328.325"
+         fill="none"
+         id="PersonFieldUpdater-to-Person"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5,3.5;" />
+      <polygon
+         fill="#000000"
+         points="344.875,331.325,346.875,326.825,344.875,328.825,342.875,326.825,344.875,331.325"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon118" />
+    </g>
+    <!--link PersonFieldUpdater to PersonFactory-->
+    <g
+       class="link"
+       data-entity-1="ent0016"
+       data-entity-2="ent0015"
+       data-link-type="dependency"
+       data-source-line="149"
+       id="lnk28">
+      <path
+         codeLine="149"
+         d="M240.5,122.005 C240.5,144.345 240.5,178.68 240.5,208.355"
+         fill="none"
+         id="PersonFieldUpdater-to-PersonFactory"
+         style="stroke:#000000;stroke-width:0.5;stroke-dasharray:3.5,3.5;" />
+      <polygon
+         fill="#000000"
+         points="240.5,211.355,242.5,206.855,240.5,208.855,238.5,206.855,240.5,211.355"
+         style="stroke:#000000;stroke-width:0.5;"
+         id="polygon119" />
+    </g>
+<?plantuml-src pLTRRzis57xth-2UAgzMTdaK0WEgBwsHn0uShzrG50KZqROGYjGeggxNvR_laBgH4hKammOi3uxDyvt3S_dE8VcTF9AKe8pYX8toXuHbME0KHHJdUIYbIEuBILOHPtV97mJzs8KiEPDQyjFFXWWBmK-joDIY2IFod174XJpoqIjAzX99ZaHoE4eK9u94Ck5iDCfmz80F107ynCN33p6M67qR8VZJEwCPJrFCucr1ILu9rD_hRxd4CeaUaI2_5s0l1s362nRFmO8NbLfhd980tK5yx30Eq3tdb62cZJpgpuH98lOu8cWr4qLiRe3Z-9Q8d3Clq_y2LFuSjv2OK299XKhY0At0t8480r9a4943Ca63LYFmKNXZjvTlYOJlT_hJzFP0PBK9n7c3iyjcdt9vwe2-EQzYo-tQ6GiRKbgkvihqZ5DQrkwoPpYl3UTLol80NIUvh9438Mr9oh-GAt8sun5wyPgVYF0aIO6uaZIv2fIw4mjMF7a4DXmvZLUn1XhmtjvvPrle00ajalSIOr978vDyaMRox3r9AqZO3MR0yKwz614GqvfybR2PvQF5_ZhTVHj-r0YVABbFUVGGe2t1yGUHI4XLzF2FgFE_w8aN5kebT7yUWr_U6GDaUO89_s4ZQBZavMHKUvRVJ08ILgGgA6voRhkOJveVRwx3sLNxSxCDrsyNXdYx-R0scg8oM30fwfvRWigiKbcjvwkm_BhUR7VlFbzjjelGrH9Sn0c3D9ZdWVyrG7lASHkUV-wkl3PKlHe_GJNEBkwlAYiTVLZ-pR4ya4TBbhV2Zv_wGK57OaMTJaIK6xPKG7DUt5FIBZ7ZW6ithQrvbGaTOwdg2DBQf8cnivDQLwUfAyQy4fdEZF_Lz9HqDvF3Jz0rFNk-qTvF90ccPqE6m2ILWH14ft6kMqubbQglkoGrAd0awagZnARn3BpEuEwpclStPjeefeay1tK_6FPm8dJN1MNpMKCSbyE-hc-RHzSmDSEUeA5m9yYCO8BwkzYKAKTKDyUA0vtf-YpgWCXioh6x4Xfc54FXtELGVbZ8lwcXxU4xdONISiV3swQO0-mt0Ft2TnFH5B-CrYv_sKijnCMLZjyrNwepYDj5QSLTOjbccf4nTj4B36rKmtbMspspntLoSGmCxJLvTPIdy6WWE-vnny7cc0DB74akp7kRtxm6vk5kyNcvsTw4kzrY2sEiAlQIYnIhIxFZ1V45ygjk926BRx78YI8oomffl1nwV1zKraplgdTJqcXdIcK11wEdJiUP2XBAe_vTBgOJb4jXM5auujK6DDEL4tSMVg15RDsbEijiXoTedn3QVJmjxKEliQ8xZ2m5JqjeA0G-UuRd7pyvRbgD-buNfecWswEkcud51UNfB_f2APpFm_AogM4UN8LkhHkc8rAOc-Jq7jF2Z7tGU-2sDgqLEfTYTnhxuLXFX8kBFwVbMtH8Phu0Xp3Dase8aDUo_WEZyg1LqRZg1FxUztiJsX1PawDQz_sfCPUinNRssOrzSJ4rK-wez4iGbTNHury0?>  </g>
+</svg>

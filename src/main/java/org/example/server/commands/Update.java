@@ -5,21 +5,22 @@ import org.example.network.Response;
 import org.example.network.ResponseStatus;
 import org.example.network.data.ICollManager;
 import org.example.network.data.Person;
-
-import java.time.LocalDateTime;
+import org.example.server.db.DatabaseManager;
 
 /**
  * Команда для обновления значения конкретного поля элемента коллекции по его ID.
  */
 public class Update implements ICommand{
     private final ICollManager collectionManager;
+    private final DatabaseManager dbManager;
 
     /**
      * Создает команду обновления элемента.
      * @param collectionManager менеджер коллекции, предоставляющий доступ к данным
      */
-    public Update(ICollManager collectionManager) {
+    public Update(ICollManager collectionManager, DatabaseManager dbManager) {
         this.collectionManager = collectionManager;
+        this.dbManager = dbManager;
     }
 
     /**
@@ -43,19 +44,33 @@ public class Update implements ICommand{
     public Response execute(Request request) {
         try {
             int id = Integer.parseInt(request.args().trim());
-            Person person = request.person();
+            Person oldPerson = collectionManager.getPersonById(id);
 
-            if (!collectionManager.containsId(id)) {
+            if (oldPerson == null) {
                 return new Response("Элемента с ID " + id + " не существует.", ResponseStatus.ERROR);
             }
 
-            // Назначаем ID и дату старому/новому объекту (по логике обновления)
-            person.setId(id);
-            person.setCreationDate(LocalDateTime.now());
+            // ПРОВЕРКА ВЛАДЕЛЬЦА
+            if (!oldPerson.getOwner().equals(request.username())) {
+                return new Response("Ошибка: У вас нет прав на изменение чужого объекта.", ResponseStatus.ERROR);
+            }
 
-            collectionManager.updatePerson(id, person);
-            return new Response("Элемент с ID " + id + " обновлен.", ResponseStatus.OK);
-        } catch (Exception e) {
+            Person newPerson = request.person();
+            newPerson.setId(id);
+            newPerson.setOwner(request.username()); // Сохраняем владельца
+            newPerson.setCreationDate(oldPerson.getCreationDate()); // Дату создания обычно не меняют при update
+
+            // 1. Обновляем в БД
+            boolean updatedInDb = dbManager.updatePerson(newPerson); // Метод нужно добавить в DatabaseManager (UPDATE persons SET ... WHERE id=? AND owner=?)
+
+            if (updatedInDb) {
+                // 2. Обновляем в памяти только при успехе
+                collectionManager.updatePerson(id, newPerson);
+                return new Response("Элемент с ID " + id + " успешно обновлен.", ResponseStatus.OK);
+            } else {
+                return new Response("Ошибка при обновлении объекта в базе данных.", ResponseStatus.ERROR);
+            }
+        } catch (NumberFormatException e) {
             return new Response("Неверный формат ID.", ResponseStatus.ERROR);
         }
     }

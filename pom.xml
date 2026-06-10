@@ -30,6 +30,12 @@
             <artifactId>logback-classic</artifactId>
             <version>1.5.32</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.2</version> <!-- или актуальная версия -->
+        </dependency>
     </dependencies>
 
     <build>

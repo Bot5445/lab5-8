@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?plantuml 1.2026.2?><svg
+   contentStyleType="text/css"
+   data-diagram-type="CLASS"
+   height="271.8px"
+   preserveAspectRatio="none"
+   style="width:761px;height:271px;background:#FFFFFF;"
+   version="1.1"
+   viewBox="0 0 761 271"
+   width="761.4px"
+   zoomAndPan="magnify"
+   id="svg33"
+   sodipodi:docname="client-network.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   inkscape:export-filename="client-network.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview33"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.19057"
+     inkscape:cx="504.80024"
+     inkscape:cy="340.59317"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="lnk20" />
+  <defs
+     id="defs1" />
+  <g
+     id="g33">
+    <!--cluster client-->
+    <g
+       class="cluster"
+       data-qualified-name="client"
+       data-source-line="9"
+       id="ent0002">
+      <path
+         d="M238.05,9.9 L278.0604,9.9 A3.375,3.375 0 0 1 280.3104,12.15 L286.6104,30.6132 L752.85,30.6132 A2.25,2.25 0 0 1 755.1,32.8632 L755.1,94.05 A2.25,2.25 0 0 1 752.85,96.3 L238.05,96.3 A2.25,2.25 0 0 1 235.8,94.05 L235.8,12.15 A2.25,2.25 0 0 1 238.05,9.9"
+         fill="#FFFFFF"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="path1" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="235.8"
+         x2="286.6104"
+         y1="30.6132"
+         y2="30.6132"
+         id="line1" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="12.6"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="39.1104"
+         x="239.4"
+         y="24.3677"
+         id="text1">client</text>
+    </g>
+    <!--cluster network-->
+    <g
+       class="cluster"
+       data-qualified-name="network"
+       data-source-line="16"
+       id="ent0007">
+      <path
+         d="m 12.15,117.9 h 59.6918 c 1.078678,0.3272 1.922797,1.17132 2.25,2.25 l 6.3,18.4632 H 748.35 c 1.24264,0 2.25,1.00736 2.25,2.25 V 263.25 c 0,1.24264 -1.00736,2.25 -2.25,2.25 H 12.15 c -1.242641,0 -2.25,-1.00736 -2.25,-2.25 v -143.1 c 0,-1.24264 1.007359,-2.25 2.25,-2.25"
+         fill="#ffffff"
+         style="stroke:#000000;stroke-width:0.9"
+         id="path2"
+         sodipodi:nodetypes="ccccsssssssc" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="9.9"
+         x2="80.3918"
+         y1="138.6132"
+         y2="138.6132"
+         id="line2" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="12.6"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="58.7918"
+         x="13.5"
+         y="132.3677"
+         id="text2">network</text>
+    </g>
+    <!--cluster data-->
+    <g
+       class="cluster"
+       data-qualified-name="network.data"
+       data-source-line="25"
+       id="ent0011">
+      <path
+         d="M33.75,157.5 L66.0331,157.5 A3.375,3.375 0 0 1 68.2831,159.75 L74.5831,178.2132 L254.25,178.2132 A2.25,2.25 0 0 1 256.5,180.4632 L256.5,241.65 A2.25,2.25 0 0 1 254.25,243.9 L33.75,243.9 A2.25,2.25 0 0 1 31.5,241.65 L31.5,159.75 A2.25,2.25 0 0 1 33.75,157.5"
+         fill="#FFFFFF"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="path3" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="31.5"
+         x2="74.5831"
+         y1="178.2132"
+         y2="178.2132"
+         id="line3" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="12.6"
+         font-weight="bold"
+         lengthAdjust="spacing"
+         textLength="31.3831"
+         x="35.1"
+         y="171.9677"
+         id="text3">data</text>
+    </g>
+    <!--class ClientMain-->
+    <g
+       class="entity"
+       data-qualified-name="client.ClientMain"
+       data-source-line="10"
+       id="ent0003">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="81.5783"
+         x="411.75"
+         y="42.3"
+         id="rect3" />
+      <ellipse
+         cx="423.45"
+         cy="54.9"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse3" />
+      <path
+         d="M425.9391,56.2781 L428.0906,56.9531 Q427.5984,58.7391 426.4453,59.6109 Q425.3063,60.4828 423.5344,60.4828 Q421.3547,60.4828 419.9484,58.9922 Q418.5563,57.5016 418.5563,54.9141 Q418.5563,52.1859 419.9625,50.6813 Q421.3688,49.1625 423.675,49.1625 Q425.6859,49.1625 426.9375,50.3438 Q427.6828,51.0469 428.0625,52.3688 L425.8688,52.8891 Q425.6719,52.0313 425.0531,51.5391 Q424.4484,51.0469 423.5625,51.0469 Q422.3391,51.0469 421.5797,51.9328 Q420.8344,52.8047 420.8344,54.7594 Q420.8344,56.8266 421.5797,57.7125 Q422.325,58.5984 423.5203,58.5984 Q424.4063,58.5984 425.0391,58.0359 Q425.6719,57.4734 425.9391,56.2781 Z "
+         fill="#000000"
+         id="path4" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="56.3783"
+         x="434.25"
+         y="59.1952"
+         id="text4">ClientMain</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="412.65"
+         x2="492.4283"
+         y1="67.5"
+         y2="67.5"
+         id="line4" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="412.65"
+         x2="492.4283"
+         y1="74.7"
+         y2="74.7"
+         id="line5" />
+    </g>
+    <!--class UDPClient-->
+    <g
+       class="entity"
+       data-qualified-name="client.UDPClient"
+       data-source-line="11"
+       id="ent0004">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="78.9311"
+         x="661.5"
+         y="42.3"
+         id="rect5" />
+      <ellipse
+         cx="673.2"
+         cy="54.9"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse5" />
+      <path
+         d="M675.6891,56.2781 L677.8406,56.9531 Q677.3484,58.7391 676.1953,59.6109 Q675.0563,60.4828 673.2844,60.4828 Q671.1047,60.4828 669.6984,58.9922 Q668.3063,57.5016 668.3063,54.9141 Q668.3063,52.1859 669.7125,50.6813 Q671.1188,49.1625 673.425,49.1625 Q675.4359,49.1625 676.6875,50.3438 Q677.4328,51.0469 677.8125,52.3688 L675.6188,52.8891 Q675.4219,52.0313 674.8031,51.5391 Q674.1984,51.0469 673.3125,51.0469 Q672.0891,51.0469 671.3297,51.9328 Q670.5844,52.8047 670.5844,54.7594 Q670.5844,56.8266 671.3297,57.7125 Q672.075,58.5984 673.2703,58.5984 Q674.1563,58.5984 674.7891,58.0359 Q675.4219,57.4734 675.6891,56.2781 Z "
+         fill="#000000"
+         id="path5" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="53.7311"
+         x="684"
+         y="59.1952"
+         id="text5">UDPClient</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="662.4"
+         x2="739.5311"
+         y1="67.5"
+         y2="67.5"
+         id="line6" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="662.4"
+         x2="739.5311"
+         y1="74.7"
+         y2="74.7"
+         id="line7" />
+    </g>
+    <!--class PersonInputReader-->
+    <g
+       class="entity"
+       data-qualified-name="client.PersonInputReader"
+       data-source-line="12"
+       id="ent0005">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="129.1711"
+         x="250.2"
+         y="42.3"
+         id="rect7" />
+      <ellipse
+         cx="261.9"
+         cy="54.9"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse7" />
+      <path
+         d="M264.3891,56.2781 L266.5406,56.9531 Q266.0484,58.7391 264.8953,59.6109 Q263.7563,60.4828 261.9844,60.4828 Q259.8047,60.4828 258.3984,58.9922 Q257.0063,57.5016 257.0063,54.9141 Q257.0063,52.1859 258.4125,50.6813 Q259.8188,49.1625 262.125,49.1625 Q264.1359,49.1625 265.3875,50.3438 Q266.1328,51.0469 266.5125,52.3688 L264.3188,52.8891 Q264.1219,52.0313 263.5031,51.5391 Q262.8984,51.0469 262.0125,51.0469 Q260.7891,51.0469 260.0297,51.9328 Q259.2844,52.8047 259.2844,54.7594 Q259.2844,56.8266 260.0297,57.7125 Q260.775,58.5984 261.9703,58.5984 Q262.8563,58.5984 263.4891,58.0359 Q264.1219,57.4734 264.3891,56.2781 Z "
+         fill="#000000"
+         id="path7" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="103.9711"
+         x="272.7"
+         y="59.1952"
+         id="text7">PersonInputReader</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="251.1"
+         x2="378.4711"
+         y1="67.5"
+         y2="67.5"
+         id="line8" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="251.1"
+         x2="378.4711"
+         y1="74.7"
+         y2="74.7"
+         id="line9" />
+    </g>
+    <!--class ScriptExecutor-->
+    <g
+       class="entity"
+       data-qualified-name="client.ScriptExecutor"
+       data-source-line="13"
+       id="ent0006">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="104.3016"
+         x="525.6"
+         y="42.3"
+         id="rect9" />
+      <ellipse
+         cx="537.3"
+         cy="54.9"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse9" />
+      <path
+         d="M539.7891,56.2781 L541.9406,56.9531 Q541.4484,58.7391 540.2953,59.6109 Q539.1563,60.4828 537.3844,60.4828 Q535.2047,60.4828 533.7984,58.9922 Q532.4063,57.5016 532.4063,54.9141 Q532.4063,52.1859 533.8125,50.6813 Q535.2188,49.1625 537.525,49.1625 Q539.5359,49.1625 540.7875,50.3438 Q541.5328,51.0469 541.9125,52.3688 L539.7188,52.8891 Q539.5219,52.0313 538.9031,51.5391 Q538.2984,51.0469 537.4125,51.0469 Q536.1891,51.0469 535.4297,51.9328 Q534.6844,52.8047 534.6844,54.7594 Q534.6844,56.8266 535.4297,57.7125 Q536.175,58.5984 537.3703,58.5984 Q538.2563,58.5984 538.8891,58.0359 Q539.5219,57.4734 539.7891,56.2781 Z "
+         fill="#000000"
+         id="path9" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="79.1016"
+         x="548.1"
+         y="59.1952"
+         id="text9">ScriptExecutor</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="526.5"
+         x2="629.0016"
+         y1="67.5"
+         y2="67.5"
+         id="line10" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="526.5"
+         x2="629.0016"
+         y1="74.7"
+         y2="74.7"
+         id="line11" />
+    </g>
+    <!--class Request-->
+    <g
+       class="entity"
+       data-qualified-name="network.Request"
+       data-source-line="17"
+       id="ent0008">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="69.0223"
+         x="666.45"
+         y="189.9"
+         id="rect11" />
+      <ellipse
+         cx="678.15"
+         cy="202.5"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse11" />
+      <path
+         d="M680.6391,203.8781 L682.7906,204.5531 Q682.2984,206.3391 681.1453,207.2109 Q680.0063,208.0828 678.2344,208.0828 Q676.0547,208.0828 674.6484,206.5922 Q673.2563,205.1016 673.2563,202.5141 Q673.2563,199.7859 674.6625,198.2813 Q676.0688,196.7625 678.375,196.7625 Q680.3859,196.7625 681.6375,197.9438 Q682.3828,198.6469 682.7625,199.9688 L680.5688,200.4891 Q680.3719,199.6313 679.7531,199.1391 Q679.1484,198.6469 678.2625,198.6469 Q677.0391,198.6469 676.2797,199.5328 Q675.5344,200.4047 675.5344,202.3594 Q675.5344,204.4266 676.2797,205.3125 Q677.025,206.1984 678.2203,206.1984 Q679.1063,206.1984 679.7391,205.6359 Q680.3719,205.0734 680.6391,203.8781 Z "
+         fill="#000000"
+         id="path11" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="43.8223"
+         x="688.95"
+         y="206.7952"
+         id="text11">Request</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="667.35"
+         x2="734.5723"
+         y1="215.1"
+         y2="215.1"
+         id="line12" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="667.35"
+         x2="734.5723"
+         y1="222.3"
+         y2="222.3"
+         id="line13" />
+    </g>
+    <!--class Response-->
+    <g
+       class="entity"
+       data-qualified-name="network.Response"
+       data-source-line="18"
+       id="ent0009">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="76.9482"
+         x="558.45"
+         y="189.9"
+         id="rect13" />
+      <ellipse
+         cx="570.15"
+         cy="202.5"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse13" />
+      <path
+         d="M572.6391,203.8781 L574.7906,204.5531 Q574.2984,206.3391 573.1453,207.2109 Q572.0063,208.0828 570.2344,208.0828 Q568.0547,208.0828 566.6484,206.5922 Q565.2563,205.1016 565.2563,202.5141 Q565.2563,199.7859 566.6625,198.2813 Q568.0688,196.7625 570.375,196.7625 Q572.3859,196.7625 573.6375,197.9438 Q574.3828,198.6469 574.7625,199.9688 L572.5688,200.4891 Q572.3719,199.6313 571.7531,199.1391 Q571.1484,198.6469 570.2625,198.6469 Q569.0391,198.6469 568.2797,199.5328 Q567.5344,200.4047 567.5344,202.3594 Q567.5344,204.4266 568.2797,205.3125 Q569.025,206.1984 570.2203,206.1984 Q571.1063,206.1984 571.7391,205.6359 Q572.3719,205.0734 572.6391,203.8781 Z "
+         fill="#000000"
+         id="path13" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="51.7482"
+         x="580.95"
+         y="206.7952"
+         id="text13">Response</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="559.35"
+         x2="634.4982"
+         y1="215.1"
+         y2="215.1"
+         id="line14" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="559.35"
+         x2="634.4982"
+         y1="222.3"
+         y2="222.3"
+         id="line15" />
+    </g>
+    <!--class ResponseStatus-->
+    <g
+       class="entity"
+       data-qualified-name="network.ResponseStatus"
+       data-source-line="19"
+       id="ent0010">
+      <rect
+         fill="#FFFFFF"
+         height="70.2264"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="111.7898"
+         x="273.6"
+         y="174.6"
+         id="rect15" />
+      <ellipse
+         cx="285.3"
+         cy="187.2"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse15" />
+      <path
+         d="M281.4609,192.6 L281.4609,181.6453 L289.5891,181.6453 L289.5891,183.5016 L283.6688,183.5016 L283.6688,185.9344 L289.1672,185.9344 L289.1672,187.7766 L283.6688,187.7766 L283.6688,190.7578 L289.8,190.7578 L289.8,192.6 L281.4609,192.6 Z "
+         fill="#000000"
+         id="path15" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="86.5898"
+         x="296.1"
+         y="191.4952"
+         id="text15">ResponseStatus</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="274.5"
+         x2="384.4898"
+         y1="199.8"
+         y2="199.8"
+         id="line16" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="12.6"
+         lengthAdjust="spacing"
+         textLength="18.6478"
+         x="279"
+         y="216.0677"
+         id="text16">OK</text>
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="12.6"
+         lengthAdjust="spacing"
+         textLength="44.1677"
+         x="279"
+         y="231.3809"
+         id="text17">ERROR</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="274.5"
+         x2="384.4898"
+         y1="237.6264"
+         y2="237.6264"
+         id="line17" />
+    </g>
+    <!--class CommandRules-->
+    <g
+       class="entity"
+       data-qualified-name="network.CommandRules"
+       data-source-line="31"
+       id="ent0014">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="109.7227"
+         x="416.7"
+         y="189.9"
+         id="rect17" />
+      <ellipse
+         cx="428.4"
+         cy="202.5"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse17" />
+      <path
+         d="M430.8891,203.8781 L433.0406,204.5531 Q432.5484,206.3391 431.3953,207.2109 Q430.2563,208.0828 428.4844,208.0828 Q426.3047,208.0828 424.8984,206.5922 Q423.5063,205.1016 423.5063,202.5141 Q423.5063,199.7859 424.9125,198.2813 Q426.3188,196.7625 428.625,196.7625 Q430.6359,196.7625 431.8875,197.9438 Q432.6328,198.6469 433.0125,199.9688 L430.8188,200.4891 Q430.6219,199.6313 430.0031,199.1391 Q429.3984,198.6469 428.5125,198.6469 Q427.2891,198.6469 426.5297,199.5328 Q425.7844,200.4047 425.7844,202.3594 Q425.7844,204.4266 426.5297,205.3125 Q427.275,206.1984 428.4703,206.1984 Q429.3563,206.1984 429.9891,205.6359 Q430.6219,205.0734 430.8891,203.8781 Z "
+         fill="#000000"
+         id="path17" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="84.5227"
+         x="439.2"
+         y="206.7952"
+         id="text18">CommandRules</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="417.6"
+         x2="525.5227"
+         y1="215.1"
+         y2="215.1"
+         id="line18" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="417.6"
+         x2="525.5227"
+         y1="222.3"
+         y2="222.3"
+         id="line19" />
+    </g>
+    <!--class Person-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.Person"
+       data-source-line="26"
+       id="ent0012">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="61.7713"
+         x="179.55"
+         y="189.9"
+         id="rect19" />
+      <ellipse
+         cx="191.25"
+         cy="202.5"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse19" />
+      <path
+         d="M193.7391,203.8781 L195.8906,204.5531 Q195.3984,206.3391 194.2453,207.2109 Q193.1063,208.0828 191.3344,208.0828 Q189.1547,208.0828 187.7484,206.5922 Q186.3563,205.1016 186.3563,202.5141 Q186.3563,199.7859 187.7625,198.2813 Q189.1688,196.7625 191.475,196.7625 Q193.4859,196.7625 194.7375,197.9438 Q195.4828,198.6469 195.8625,199.9688 L193.6688,200.4891 Q193.4719,199.6313 192.8531,199.1391 Q192.2484,198.6469 191.3625,198.6469 Q190.1391,198.6469 189.3797,199.5328 Q188.6344,200.4047 188.6344,202.3594 Q188.6344,204.4266 189.3797,205.3125 Q190.125,206.1984 191.3203,206.1984 Q192.2063,206.1984 192.8391,205.6359 Q193.4719,205.0734 193.7391,203.8781 Z "
+         fill="#000000"
+         id="path19" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="36.5713"
+         x="202.05"
+         y="206.7952"
+         id="text19">Person</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="180.45"
+         x2="240.4213"
+         y1="215.1"
+         y2="215.1"
+         id="line20" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="180.45"
+         x2="240.4213"
+         y1="222.3"
+         y2="222.3"
+         id="line21" />
+    </g>
+    <!--class PersonFactory-->
+    <g
+       class="entity"
+       data-qualified-name="network.data.PersonFactory"
+       data-source-line="27"
+       id="ent0013">
+      <rect
+         fill="#FFFFFF"
+         height="39.6"
+         rx="2.25"
+         ry="2.25"
+         style="stroke:#000000;stroke-width:0.9;"
+         width="101.9021"
+         x="46.35"
+         y="189.9"
+         id="rect21" />
+      <ellipse
+         cx="58.05"
+         cy="202.5"
+         fill="#FFFFFF"
+         rx="8.1"
+         ry="8.1"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="ellipse21" />
+      <path
+         d="M60.5391,203.8781 L62.6906,204.5531 Q62.1984,206.3391 61.0453,207.2109 Q59.9063,208.0828 58.1344,208.0828 Q55.9547,208.0828 54.5484,206.5922 Q53.1563,205.1016 53.1563,202.5141 Q53.1563,199.7859 54.5625,198.2813 Q55.9688,196.7625 58.275,196.7625 Q60.2859,196.7625 61.5375,197.9438 Q62.2828,198.6469 62.6625,199.9688 L60.4688,200.4891 Q60.2719,199.6313 59.6531,199.1391 Q59.0484,198.6469 58.1625,198.6469 Q56.9391,198.6469 56.1797,199.5328 Q55.4344,200.4047 55.4344,202.3594 Q55.4344,204.4266 56.1797,205.3125 Q56.925,206.1984 58.1203,206.1984 Q59.0063,206.1984 59.6391,205.6359 Q60.2719,205.0734 60.5391,203.8781 Z "
+         fill="#000000"
+         id="path21" />
+      <text
+         fill="#000000"
+         font-family="Verdana"
+         font-size="10.8"
+         lengthAdjust="spacing"
+         textLength="76.7021"
+         x="68.85"
+         y="206.7952"
+         id="text21">PersonFactory</text>
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="47.25"
+         x2="147.3521"
+         y1="215.1"
+         y2="215.1"
+         id="line22" />
+      <line
+         style="stroke:#000000;stroke-width:0.9;"
+         x1="47.25"
+         x2="147.3521"
+         y1="222.3"
+         y2="222.3"
+         id="line23" />
+    </g>
+    <!--link ClientMain to CommandRules-->
+    <g
+       class="link"
+       data-entity-1="ent0003"
+       data-entity-2="ent0014"
+       data-link-type="dependency"
+       data-source-line="35"
+       id="lnk15"
+       transform="translate(-34.429431)">
+      <path
+         codeLine="35"
+         d="m 478.26,82.008 c 0,28.251 0,74.259 0,102.465"
+         fill="none"
+         id="ClientMain-to-CommandRules"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3, 6.3" />
+      <polygon
+         fill="#000000"
+         points="481.86,181.773 478.26,185.373 474.66,181.773 478.26,189.873 "
+         style="stroke:#000000;stroke-width:0.9"
+         id="polygon23" />
+    </g>
+    <!--link ClientMain to Request-->
+    <g
+       class="link"
+       data-entity-1="ent0003"
+       data-entity-2="ent0008"
+       data-link-type="dependency"
+       data-source-line="36"
+       id="lnk16">
+      <path
+         codeLine="36"
+         d="m 477.75415,82.08 v 31.32 l 211.79885,0 v 70.947"
+         fill="none"
+         id="ClientMain-to-Request"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3, 6.3"
+         sodipodi:nodetypes="cccc" />
+      <polygon
+         fill="#000000"
+         points="689.553,189.747,693.153,181.647,689.553,185.247,685.953,181.647,689.553,189.747"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon24" />
+    </g>
+    <!--link ClientMain to Response-->
+    <g
+       class="link"
+       data-entity-1="ent0003"
+       data-entity-2="ent0009"
+       data-link-type="dependency"
+       data-source-line="37"
+       id="lnk17">
+      <path
+         codeLine="37"
+         d="m 465.59257,81.927 v 74.80476 H 582.3 V 184.23"
+         fill="none"
+         id="ClientMain-to-Response"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3, 6.3"
+         sodipodi:nodetypes="cccc" />
+      <polygon
+         fill="#000000"
+         points="582.3,189.63,585.9,181.53,582.3,185.13,578.7,181.53,582.3,189.63"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon25" />
+    </g>
+    <!--link ClientMain to ResponseStatus-->
+    <g
+       class="link"
+       data-entity-1="ent0003"
+       data-entity-2="ent0010"
+       data-link-type="dependency"
+       data-source-line="38"
+       id="lnk18"
+       transform="matrix(0,-0.99758081,-1.0024251,0,521.8144,557.85903)">
+      <path
+         codeLine="38"
+         d="m 477.23748,88.264409 h -43.3336 V 182.7 l -43.27688,0"
+         fill="none"
+         id="ClientMain-to-ResponseStatus"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3, 6.3"
+         sodipodi:nodetypes="cccc" />
+      <polygon
+         fill="#000000"
+         points="393.327,179.1 385.227,182.7 393.327,186.3 389.727,182.7 "
+         style="stroke:#000000;stroke-width:0.9"
+         id="polygon26" />
+    </g>
+    <!--link UDPClient to Request-->
+    <g
+       class="link"
+       data-entity-1="ent0004"
+       data-entity-2="ent0008"
+       data-link-type="dependency"
+       data-source-line="40"
+       id="lnk19">
+      <path
+         codeLine="40"
+         d="M712.647,82.008 C712.647,110.259 712.647,156.267 712.647,184.473"
+         fill="none"
+         id="UDPClient-to-Request"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3,6.3;" />
+      <polygon
+         fill="#000000"
+         points="712.647,189.873,716.247,181.773,712.647,185.373,709.047,181.773,712.647,189.873"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon27" />
+    </g>
+    <!--link UDPClient to Response-->
+    <g
+       class="link"
+       data-entity-1="ent0004"
+       data-entity-2="ent0009"
+       data-link-type="dependency"
+       data-source-line="41"
+       id="lnk20">
+      <path
+         codeLine="41"
+         d="m 661.086,69.3 h -8.433 v 104.49126 h -26.92421 l 0,12.52856"
+         fill="none"
+         id="UDPClient-to-Response"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3, 6.3"
+         sodipodi:nodetypes="ccccc" />
+      <polygon
+         fill="#000000"
+         points="639.756,203.4 643.356,199.8 635.256,203.4 643.356,207 "
+         style="stroke:#000000;stroke-width:0.9"
+         id="polygon28"
+         transform="matrix(0,-0.99758081,1.0024251,0,421.9584,822.70413)" />
+    </g>
+    <!--link PersonInputReader to PersonFactory-->
+    <g
+       class="link"
+       data-entity-1="ent0005"
+       data-entity-2="ent0013"
+       data-link-type="dependency"
+       data-source-line="43"
+       id="lnk21">
+      <path
+         codeLine="43"
+         d="M249.948,62.1 C185.769,62.1 97.2,62.1 97.2,62.1 C97.2,62.1 97.2,144.108 97.2,184.392"
+         fill="none"
+         id="PersonInputReader-to-PersonFactory"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3,6.3;" />
+      <polygon
+         fill="#000000"
+         points="97.2,189.792,100.8,181.692,97.2,185.292,93.6,181.692,97.2,189.792"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon29" />
+    </g>
+    <g
+       class="link"
+       data-entity-1="ent0005"
+       data-entity-2="ent0013"
+       data-link-type="dependency"
+       data-source-line="43"
+       id="lnk21-4"
+       transform="translate(113.25526,-1.3060496)">
+      <path
+         codeLine="43"
+         d="m 200.76489,83.122206 0,36.122664 H 97.2 V 184.392"
+         fill="none"
+         id="PersonInputReader-to-PersonFactory-8"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3, 6.3"
+         sodipodi:nodetypes="cccc" />
+      <polygon
+         fill="#000000"
+         points="93.6,181.692 97.2,189.792 100.8,181.692 97.2,185.292 "
+         style="stroke:#000000;stroke-width:0.9"
+         id="polygon29-8" />
+    </g>
+    <!--link PersonInputReader to Person-->
+    <!--link ScriptExecutor to CommandRules-->
+    <g
+       class="link"
+       data-entity-1="ent0006"
+       data-entity-2="ent0014"
+       data-link-type="dependency"
+       data-source-line="46"
+       id="lnk23">
+      <path
+         codeLine="46"
+         d="M542.475,82.008 C542.475,122.292 542.475,209.7 542.475,209.7 C542.475,209.7 541.296,209.7 532.143,209.7"
+         fill="none"
+         id="ScriptExecutor-to-CommandRules"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3,6.3;" />
+      <polygon
+         fill="#000000"
+         points="526.743,209.7,534.843,213.3,531.243,209.7,534.843,206.1,526.743,209.7"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon31" />
+    </g>
+    <!--link ScriptExecutor to Request-->
+    <g
+       class="link"
+       data-entity-1="ent0006"
+       data-entity-2="ent0008"
+       data-link-type="dependency"
+       data-source-line="47"
+       id="lnk24">
+      <path
+         codeLine="47"
+         d="M630.126,55.8 C638.136,55.8 643.797,55.8 643.797,55.8 C643.797,55.8 643.797,216.9 643.797,216.9 C643.797,216.9 648.981,216.9 661.05,216.9"
+         fill="none"
+         id="ScriptExecutor-to-Request"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3,6.3;" />
+      <polygon
+         fill="#000000"
+         points="666.45,216.9,658.35,213.3,661.95,216.9,658.35,220.5,666.45,216.9"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon32" />
+    </g>
+    <!--link ScriptExecutor to Response-->
+    <g
+       class="link"
+       data-entity-1="ent0006"
+       data-entity-2="ent0009"
+       data-link-type="dependency"
+       data-source-line="48"
+       id="lnk25">
+      <path
+         codeLine="48"
+         d="M606.15,82.008 C606.15,110.259 606.15,156.267 606.15,184.473"
+         fill="none"
+         id="ScriptExecutor-to-Response"
+         style="stroke:#000000;stroke-width:0.9;stroke-dasharray:6.3,6.3;" />
+      <polygon
+         fill="#000000"
+         points="606.15,189.873,609.75,181.773,606.15,185.373,602.55,181.773,606.15,189.873"
+         style="stroke:#000000;stroke-width:0.9;"
+         id="polygon33" />
+    </g>
+<?plantuml-src XPBVIiCm5CRlynJnQdT3lVH2aBd14Ddey05YUzp2sgGc9ymf0-UjWe_WAyX0BFZd6T8ticktjLcdvgAql-_aV5zEkeSZY8368UE2w34NCLCiedx8j3v1LFpI87HzAGRy5kZ-Tab72ioLWyEAn9IIarAgxWgv09p6GAN2aIID4AwGegIA3qT80wx0Hou58IHc_fWD8VFX893U4Pgjt9IsSdI-Z5p2YzD-mIki3qfBqHMnGGzO0AgY3Np5OspVW6zGAZ8h7RE44wd6ZgK7rmOqEaJ7KcZ84GWJRSW06HgzshvSlRFDQzlpUbx-DTjXsGmOCiUtE44DT9YVXPx-bxebeuY9m3CXw6LjWzgNzDw-seLDx4VwPB_IH_j6qxbTfC_stIOqU-HgXXBxQR_JUVfWaoDIZfmscyTkuorjFQeQNith5rvCZP3DFJhDjkcg5wdTSAwxG_ghXX3tFwYVReU-3hLJAfBz0000?>  </g>
+</svg>

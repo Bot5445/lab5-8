@@ -1,0 +1,50 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+'left to right direction
+
+
+package client {
+    class ClientMain
+    class UDPClient
+    class PersonInputReader
+    class ScriptExecutor
+}
+
+package network {
+    class Request
+    class Response
+    enum ResponseStatus {
+        OK
+        ERROR
+    }
+}
+
+package network.data {
+    class Person
+    class PersonFactory
+}
+
+package network {
+    class CommandRules
+}
+
+' Правильные связи зависимости:
+ClientMain ..> CommandRules
+ClientMain ..> Request
+ClientMain ..> Response
+ClientMain ..> ResponseStatus
+
+UDPClient ..> Request
+UDPClient ..> Response
+
+PersonInputReader ..> PersonFactory
+PersonInputReader ..> Person
+
+ScriptExecutor ..> CommandRules
+ScriptExecutor ..> Request
+ScriptExecutor ..> Response
+@enduml

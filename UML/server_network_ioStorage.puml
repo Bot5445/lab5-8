@@ -1,0 +1,91 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+left to right direction
+'
+package network {
+    class Request
+    class Response
+}
+
+package network.data {
+    interface ICollManager
+    interface IGetterSetter
+    class CollectionManager
+}
+
+package server.db {
+    class DatabaseManager {
+        -url: String
+        -user: String
+        -password: String
+        +DatabaseManager()
+        +{static} hashPassword(password: String): String
+        +registerUser(username: String, password: String): boolean
+        +authenticate(username: String, password: String): boolean
+        +loadAllPersons(): List<Person>
+        +insertPerson(person: Person): Person
+        +deletePerson(id: int, owner: String): boolean
+        +updatePerson(person: Person): boolean
+    }
+}
+
+
+package server.commands {
+    interface ICommand
+}
+
+package server {
+    class ServerMain {
+        -{static} PORT: int
+        +{static} main(args: String[])
+    }
+    
+    class CommandProcessor {
+        -commands: Map<String, ICommand>
+        -dbManager: DatabaseManager
+        +CommandProcessor(commands: Map<String, ICommand>, dbManager: DatabaseManager)
+        +process(request: Request): Response
+    }
+    
+    class RequestReceiver {
+        -channel: DatagramChannel
+        -bufferSize: int
+        +RequestReceiver(channel: DatagramChannel, bufferSize: int)
+        +receive(): RequestWrapper
+    }
+    
+    record RequestWrapper {
+        request: Request
+    }
+    
+    class ResponseSender {
+        -channel: DatagramChannel
+        +ResponseSender(channel: DatagramChannel)
+        +send(response: Response, clientAddress: SocketAddress)
+    }
+}
+
+ServerMain ..> DatabaseManager
+ServerMain ..> CollectionManager
+ServerMain ..> RequestReceiver
+ServerMain ..> ResponseSender
+ServerMain --> CommandProcessor
+
+RequestReceiver ..> RequestWrapper
+RequestWrapper *-- Request
+
+CommandProcessor ..> Request
+CommandProcessor ..> Response
+CommandProcessor --> ICommand
+CommandProcessor --> DatabaseManager
+
+ICommand ..> ICollManager
+ICommand ..> IGetterSetter
+ICommand ..> Request
+ICommand ..> Response
+ICommand ..> DatabaseManager
+@enduml

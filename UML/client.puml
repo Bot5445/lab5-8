@@ -1,0 +1,55 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam arrowFontSize 10
+skinparam linetype ortho
+
+'left to right direction
+
+
+package client {
+    class ClientMain {
+        +{static} main(args: String[])
+        -{static} processResponse(response: Response)
+    }
+    class UDPClient {
+        -serverAddress: InetSocketAddress
+        -channel: DatagramChannel
+        +UDPClient(host: String, port: int)
+        +sendRequest(request: Request): Response
+        +close()
+    }
+    class PersonInputReader {
+        -scanner: Scanner
+        +PersonInputReader(scanner: Scanner)
+        +readPersonData(args: String): String[]
+        -readField(prompt: String, validator: Predicate<String>, formatNumber: String): String
+        -readNextArgOrPrompt(argQueue: Queue<String>, prompt: String, validator: Predicate<String>, formatNumber: String): String
+        -readFieldEnum(fieldName: String, enumClass: Class<E>): String
+        +{static} cleinerStr(input: String): String
+        +{static} cleinerStr(input: String, formatNumber: String): String
+        -{static} isValidNumberFormat(s: String, allowDecimal: boolean): boolean
+        -{static} isString(): Predicate<String>
+        -{static} isPassportId(): Predicate<String>
+        -{static} isNumber(parser: Function, condition: Predicate, allowDecimal: boolean): Predicate<String>
+        -{static} isFloat(condition: Predicate<Float>): Predicate<String>
+        -{static} isDouble(condition: Predicate<Double>): Predicate<String>
+    }
+    class ScriptExecutor {
+        -udpClient: UDPClient
+        -username: String
+        -password: String
+        -{static} runningScripts: Set<String>
+        +ScriptExecutor(udpClient: UDPClient, username: String, password: String)
+        +executeScript(filePath: String)
+    }
+}
+
+ClientMain ..> PersonInputReader
+ClientMain ..> ScriptExecutor
+ClientMain --> UDPClient
+
+ScriptExecutor --> UDPClient
+
+@enduml
