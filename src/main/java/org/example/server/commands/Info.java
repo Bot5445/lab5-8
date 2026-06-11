@@ -5,9 +5,6 @@ import org.example.network.Response;
 import org.example.network.data.ICollManager;
 import org.example.network.data.Person;
 
-
-import static java.lang.String.format;
-
 /**
  * Команда для вывода информации о коллекции.
  * Выводит список всех элементов в стандартный поток вывода (ID и Имя).
